@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="http://127.0.0.1:8080/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:8080/css/custom.css">
+<script src="/js/tmpl/game.js"></script>
+<script src="/js/tmpl/login.js"></script>
+<script src="/js/tmpl/scoreboard.js"></script>
+
+<fest:template xmlns:fest="http://fest.mail.ru"
+          context_name="json">
+        <body>  
+          <div>
+           <h1 align="center">Epic Game</h1>
+          </div>
+          <div id="content">
+            <div class="btn-group-vertical" >          
+                <input id="gameBtn" type="button" class="btn" value="New game"></input>
+                <input id="autorizeBtn" type="button" class="btn" value="Autorize"></input> 
+                <input id="scoreBtn" type="button" class="btn" value="ScoreBoard"></input>            
+            </div>
+          </div>
+          <script>  
+            $(document).ready(function(){  
+          
+              $('#gameBtn').click(function(){  
+                  $.ajax({                        
+                      cache: false,  
+                      success: function(html){  
+                          $("#content").html(gameTmpl());  
+                      }  
+                  });  
+              });
+              $('#autorizeBtn').click(function(){  
+                  $.ajax({  
+                      cache: false,  
+                      success: function(html){  
+                          $("#content").html(loginTmpl());  
+                      }  
+                  });  
+              });  
+              $('#scoreBtn').click(function(){  
+                  $.ajax({   
+                      cache: false,  
+                      success: function(html){  
+                          $("#content").html(scoreboardTmpl());  
+                      }  
+                  });  
+              });    
+            })
+          </script>  
+        </body>
+</fest:template>

@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="http://127.0.0.1:8080/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:8080/css/custom.css">
+<fest:template xmlns:fest="http://fest.mail.ru"
+          context_name="json">
+
+	<div  class="btn-group-vertical" >          
+	    <input id="backBtn" type="button" class="btn" value="Back"></input>         
+	</div>
+  <div class="input-group input-group-lg">
+    <span class="input-group-addon" id="sizing-addon1">@</span>
+    <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1"></input>
+    <input type="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon1"></input>
+  </div>
+
+  <script>  
+    $(document).ready(function(){  
+      $('#backBtn').click(function(){  
+          $.ajax({                        
+              cache: false,  
+              success: function(html){
+                  var $page = $('#page');
+                  $page.html(mainTmpl());  
+                  
+              }  
+          });  
+      });  
+    })
+  </script> 
+   
+</fest:template>
