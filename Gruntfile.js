@@ -62,8 +62,6 @@ module.exports = function (grunt) {
                 logConcurrentOutput: true /* Вывод логов */
             }
         }
-
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -71,9 +69,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');
-
     grunt.registerTask('default', ['concurrent']);
-
-
-
 };
