@@ -1,8 +1,14 @@
 .btn-group-vertical {
-	margin-left: 45%;
+	margin-left: 43%;
 }
 .btn {
 	margin-top: 10%;
 	border: 10px solid transparent;
 	padding: 10%;
+}
+
+.login-form {
+	display: block;
+	max-width: 300px;
+	margin: 0 auto;
 }
