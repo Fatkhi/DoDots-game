@@ -4,7 +4,11 @@ require.config({
     paths: {
         jquery: "lib/jquery",
         underscore: "lib/underscore",
-        backbone: "lib/backbone"
+        backbone: "lib/backbone",
+        mainTmpl: "tmpl/main",
+        loginTmpl: "tmpl/login",
+        gameTmpl: "tmpl/game",
+        scoreboardTmpl: "tmpl/scoreboard"
     },
     shim: {
         'backbone': {
@@ -19,10 +23,14 @@ require.config({
 
 define([
     'backbone',
-    'router'
+    'router',
+    'mainTmpl',
+    'jquery'
 ], function(
     Backbone,
-    router
+    router,
+    mainTmpl
 ){
     Backbone.history.start();
+    $('#page').html(mainTmpl());
 });

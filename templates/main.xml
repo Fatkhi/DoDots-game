@@ -1,46 +1,8 @@
-<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="http://127.0.0.1:8080/css/styles.css">
-<script src="/js/tmpl/game.js"></script>
-<script src="/js/tmpl/login.js"></script>
-<script src="/js/tmpl/scoreboard.js"></script>
-
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
-<body>
-        <h1>DoDots</h1>
-        <div id="content" class="container">
-            <div class="btn" id="gameBtn">Start game</div>
-            <div class="btn" id="autorizeBtn">Login</div>
-            <div class="btn" id="scoreBtn">Scoreboard</div>
+        <div id="content" class="menu">
+            <a class="menu_btn" href="#game">Start game</a>
+            <a class="menu_btn" href="#login">Login</a>
+            <a class="menu_btn" href="#scoreboard">Scoreboard</a>
         </div>
-        <script>  
-            $(document).ready(function(){  
-          
-              $('#gameBtn').click(function(){  
-                  $.ajax({                        
-                      cache: false,  
-                      success: function(html){  
-                          $("#content").html(gameTmpl());  
-                      }  
-                  });  
-              });
-              $('#autorizeBtn').click(function(){  
-                  $.ajax({  
-                      cache: false,  
-                      success: function(html){  
-                          $("#content").html(loginTmpl());  
-                      }  
-                  });  
-              });  
-              $('#scoreBtn').click(function(){  
-                  $.ajax({   
-                      cache: false,  
-                      success: function(html){  
-                          $("#content").html(scoreboardTmpl());  
-                      }  
-                  });  
-              });    
-            })
-          </script>  
-</body> 
 </fest:template>

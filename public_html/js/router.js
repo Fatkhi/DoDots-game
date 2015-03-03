@@ -1,7 +1,15 @@
-define([
-    'backbone'
+define('router', [
+    'backbone',
+    'gameTmpl',
+    'loginTmpl',
+    'scoreboardTmpl',
+    'mainTmpl'
 ], function(
-    Backbone
+    Backbone,
+    gameTmpl,
+    loginTmpl,
+    scoreboardTmpl,
+    mainTmpl
 ){
 
     var Router = Backbone.Router.extend({
@@ -9,21 +17,41 @@ define([
             'scoreboard': 'scoreboardAction',
             'game': 'gameAction',
             'login': 'loginAction',
-            '*default': 'defaultActions'
+            'main': 'mainAction'
         },
-        defaultActions: function () {
-            // TODO
+        mainAction: function () {
+          $.ajax({
+							cache: false,
+							success: function(html){
+									$("#page").html(mainTmpl());
+							}
+					});
         },
-        scoreboardAction: function () {
-            // TODO
-        },
-        gameAction: function () {
-            // TODO
-        },
-        loginAction: function () {
-            // TODO
-        }
-    });
+				scoreboardAction: function () {
+					$.ajax({
+							cache: false,
+							success: function(html){
+									$("#page").html(scoreboardTmpl());
+							}
+					});
+				},
+				gameAction: function () {
+					$.ajax({
+							cache: false,
+							success: function(html){
+									$("#page").html(gameTmpl());
+							}
+					});
+				},
+				loginAction: function () {
+					$.ajax({
+							cache: false,
+							success: function(html){
+									$("#page").html(loginTmpl());
+							}
+					});
+				}
+		});
 
     return new Router();
 });

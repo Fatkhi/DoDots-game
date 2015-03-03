@@ -9,7 +9,7 @@ h1 {
     margin-top: 0;
     margin-bottom: 0;
 }
-.container {
+.menu {
     background-color: RGB(187, 173, 160);
     margin-left: 30%;
     margin-right: 30%;
@@ -18,7 +18,7 @@ h1 {
     padding-bottom: 1px;
     box-shadow: 0px 0px 5px #666666;
 }
-.btn {
+.menu_btn {
     border-radius: 100px;
     box-shadow: 0px 0px 5px #666666;
     font-family: 'Pacifico';
@@ -31,8 +31,9 @@ h1 {
     margin: auto;
     margin-top: 70px;
     margin-bottom: 70px;
+    display: block;
 }
-.btn:hover {
+.menu_btn:hover {
     background: RGB(143, 122, 102);
     color: #EDE0C9;
 }

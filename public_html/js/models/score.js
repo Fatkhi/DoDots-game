@@ -1,11 +1,12 @@
-define([
-    'backbone'
+define('Player', [
+	'backbone'
 ], function(
-    Backbone
+	Backbone
 ){
-
-    var Model = Backbone.Model.extend({
-    });
-
-    return Model;
+	var Player = Backbone.Model.extend({
+		constructor: function() {
+			this.set({name: '', score: 0});
+		}
+	);
+	return Player;
 });

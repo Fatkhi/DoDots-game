@@ -1,4 +1,4 @@
-define([
+define('Scoreboard', [
     'backbone',
     'tmpl/scoreboard'
 ], function(
@@ -10,7 +10,7 @@ define([
 
         template: tmpl,
         initialize: function () {
-            // TODO
+            var players = new ScoreCollection([])
         },
         render: function () {
             // TODO

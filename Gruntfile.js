@@ -49,13 +49,13 @@ module.exports = function (grunt) {
                 options: {
                     template: function (data) {
                         return grunt.template.process(
-                            'var <%= name %>Tmpl = <%= contents %> ;',
+                            'define("<%= name %>Tmpl", [], function() { return <%= contents %> ;});',
                             {data: data}
                         );
                     }
                 }
             }
-        },        
+        },
         concurrent: {
             target: ['watch', 'shell'],
             options: {

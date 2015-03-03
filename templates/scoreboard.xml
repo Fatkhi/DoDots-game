@@ -1,25 +1,7 @@
-<link rel="stylesheet" href="http://127.0.0.1:8080/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://127.0.0.1:8080/css/custom.css">
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
 
-	<div  class="btn-group-vertical" >          
-	    <input id="backBtn" type="button" class="btn" value="Back"></input>         
+	<div  class="btn-group-vertical" >
+	    <a id="backBtn" href="#main" class="btn">Back</a>
 	</div>
-
-  <script>  
-    $(document).ready(function(){  
-      $('#backBtn').click(function(){  
-          $.ajax({                        
-              cache: false,  
-              success: function(html){
-                  var $page = $('#page');
-                  $page.html(mainTmpl());  
-                  
-              }  
-          });  
-      });  
-    })
-  </script> 
-   
 </fest:template>
