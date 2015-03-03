@@ -1,29 +1,21 @@
-<link rel="stylesheet" href="http://127.0.0.1:8080/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://127.0.0.1:8080/css/custom.css">
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://127.0.0.1:8080/css/styles.css">
 <script src="/js/tmpl/game.js"></script>
 <script src="/js/tmpl/login.js"></script>
 <script src="/js/tmpl/scoreboard.js"></script>
 
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
-        <body>  
-          <div id="content" class="container">
-            <div class="page-header">
-              <h2 class="text-center">Epic Game</h2>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-              </div>
-              <div class="col-md-4">
-                <div class="jumbotron">
-                  <button type="button" id="gameBtn" class="btn btn-danger btn-lg btn-block">New game</button>
-                  <button type="button" id="autorizeBtn" class="btn btn-warning btn-lg btn-block">Login</button>
-                  <button type="button" id="scoreBtn" class="btn btn-success btn-lg btn-block">Scoreboard</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <script>  
+<body>
+        <h1>DoDots</h1>
+				<div id="content">
+					<div class="container">
+							<div class="btn" id="gameBtn">Start game</div>
+							<div class="btn" id="autorizeBtn">Login</div>
+							<div class="btn" id="scoreBtn">Scoreboard</div>
+					</div>
+				</div>
+        <script>  
             $(document).ready(function(){  
           
               $('#gameBtn').click(function(){  
@@ -52,5 +44,5 @@
               });    
             })
           </script>  
-        </body>
+</body> 
 </fest:template>
