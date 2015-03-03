@@ -1,10 +1,11 @@
 .btn-group-vertical {
 	margin-left: 43%;
 }
-.menu_btn {
+.other_btn {
 	margin-top: 10%;
 	border: 10px solid transparent;
 	padding: 10%;
+	background-color: silver;
 }
 
 .login-form {

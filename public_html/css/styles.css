@@ -27,15 +27,17 @@ h1 {
     background: #EDE0C9;
     text-align: center;
     text-decoration: none;
-    width: 50%;
+    max-width: 50%;
     margin: auto;
     margin-top: 70px;
     margin-bottom: 70px;
     display: block;
+    padding: 10px;
 }
 .menu_btn:hover {
     background: RGB(143, 122, 102);
     color: #EDE0C9;
+    text-decoration: none;
 }
 
 

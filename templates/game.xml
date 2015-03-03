@@ -2,6 +2,6 @@
           context_name="json">
 
 	<div  class="btn-group-vertical" >
-	    <a id="backBtn" href="#main" class="btn">Back</a>
+	    <a href="#main" class="btn other_btn">Back</a>
 	</div>
 </fest:template>
