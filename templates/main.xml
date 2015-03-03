@@ -8,11 +8,13 @@
           context_name="json">
 <body>
         <h1>DoDots</h1>
-        <div class="container">
-            <div class="btn" id="gameBtn">Start game</div>
-            <div class="btn" id="autorizeBtn">Login</div>
-            <div class="btn" id="scoreBtn">Scoreboard</div>
-        </div>
+				<div id="content">
+					<div class="container">
+							<div class="btn" id="gameBtn">Start game</div>
+							<div class="btn" id="autorizeBtn">Login</div>
+							<div class="btn" id="scoreBtn">Scoreboard</div>
+					</div>
+				</div>
         <script>  
             $(document).ready(function(){  
           
