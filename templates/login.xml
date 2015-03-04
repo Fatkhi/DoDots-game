@@ -49,7 +49,7 @@
 		var str = document.getElementById("password").value;
 		var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/; 
 		if(!re.test(str)) {
-			alert("Error: Password must be different from Username!");
+			alert("Invalid Password!");
 			return false;
 		} 
 	} 
