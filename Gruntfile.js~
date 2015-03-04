@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                 stderr: true
             },
             server: {
-                command: 'java -cp tp_server.jar main.Main'
+                command: 'java -jar tp_server.jar'
             }
         },
         fest: {
@@ -49,13 +49,13 @@ module.exports = function (grunt) {
                 options: {
                     template: function (data) {
                         return grunt.template.process(
-                            'define("<%= name %>Tmpl", [], function() { return <%= contents %> ;});',
+                            'var <%= name %>Tmpl = <%= contents %> ;',
                             {data: data}
                         );
                     }
                 }
             }
-        },
+        },        
         concurrent: {
             target: ['watch', 'shell'],
             options: {
