@@ -5,13 +5,13 @@
 			</div>
 			<div class="col-md-4">
 				<div class="jumbotron">
-					<form class="login-form form-inline" action="/login" method="POST">
+					<form class="login-form form-inline" action="/login" method="POST" name="ValidationForm" onsubmit="return checkPassword()">
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon">
 									<span class="glyphicon glyphicon-user"></span>
 								</div>
-								<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" id="username"></input>
+								<input type="email" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" id="username"></input>
 							</div>
 						</div>
 						<div class="form-group">
@@ -39,3 +39,18 @@
 	</div>
 
 </fest:template>
+<script type="text/javascript"> 
+	window.onload = function() {
+		document.getElementById("password").onchange = checkPassword;
+		document.getElementById("password").onchange
+	}
+	function checkPassword() 
+	{ // at least one number, one lowercase and one uppercase letter // at least six characters 
+		var str = document.getElementById("password").value;
+		var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/; 
+		if(!re.test(str)) {
+			alert("Error: Password must be different from Username!");
+			return false;
+		} 
+	} 
+</script>
