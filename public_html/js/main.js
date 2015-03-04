@@ -8,7 +8,10 @@ require.config({
         mainTmpl: "tmpl/main",
         loginTmpl: "tmpl/login",
         gameTmpl: "tmpl/game",
-        scoreboardTmpl: "tmpl/scoreboard"
+        scoreboardTmpl: "tmpl/scoreboard",
+        scoreboard: "views/scoreboard",
+        score: "models/score",
+        scores: "collections/scores"
     },
     shim: {
         'backbone': {

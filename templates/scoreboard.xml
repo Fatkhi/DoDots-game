@@ -1,7 +1,12 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
 
-	<div  class="btn-group-vertical" >
-	    <a href="#main" class="btn other_btn">Back</a>
-	</div>
+  <div  class="btn-group-vertical" >
+      <ul>
+        <fest:each iterate="json.players" index="i" value="v">
+          <li><fest:value>v.get('name')</fest:value>-<fest:value>v.get('score')</fest:value></li>
+        </fest:each>
+      </ul>
+      <a href="#main" class="btn other_btn">Back</a>
+  </div>
 </fest:template>

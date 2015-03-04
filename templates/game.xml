@@ -1,7 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
 
-	<div  class="btn-group-vertical" >
-	    <a href="#main" class="btn other_btn">Back</a>
-	</div>
+  <div  class="btn-group-vertical" >
+      <a href="#main" class="btn other_btn">Back</a>
+  </div>
 </fest:template>

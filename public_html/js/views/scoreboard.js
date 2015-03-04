@@ -1,19 +1,24 @@
-define('Scoreboard', [
+define('scoreboard', [
     'backbone',
-    'tmpl/scoreboard'
+    'scoreboardTmpl',
+    'scores'
 ], function(
     Backbone,
-    tmpl
+    tmpl,
+    ScoreCollection
 ){
 
     var View = Backbone.View.extend({
-
+        model: ScoreCollection,
         template: tmpl,
         initialize: function () {
-            var players = new ScoreCollection([])
+            this.listenTo(this.model, "change", this.render);
         },
         render: function () {
-            // TODO
+            var self = this
+            $(document).ready(function(){
+              $("#page").html(self.template({players:self.model.models}));
+            });
         },
         show: function () {
             // TODO
@@ -23,6 +28,5 @@ define('Scoreboard', [
         }
 
     });
-
     return new View();
 });

@@ -2,13 +2,13 @@ define('router', [
     'backbone',
     'gameTmpl',
     'loginTmpl',
-    'scoreboardTmpl',
+    'scoreboard',
     'mainTmpl'
 ], function(
     Backbone,
     gameTmpl,
     loginTmpl,
-    scoreboardTmpl,
+    scoreboard,
     mainTmpl
 ){
 
@@ -20,38 +20,18 @@ define('router', [
             'main': 'mainAction'
         },
         mainAction: function () {
-          $.ajax({
-							cache: false,
-							success: function(html){
-									$("#page").html(mainTmpl());
-							}
-					});
+          $("#page").html(mainTmpl());
         },
-				scoreboardAction: function () {
-					$.ajax({
-							cache: false,
-							success: function(html){
-									$("#page").html(scoreboardTmpl());
-							}
-					});
-				},
-				gameAction: function () {
-					$.ajax({
-							cache: false,
-							success: function(html){
-									$("#page").html(gameTmpl());
-							}
-					});
-				},
-				loginAction: function () {
-					$.ajax({
-							cache: false,
-							success: function(html){
-									$("#page").html(loginTmpl());
-							}
-					});
-				}
-		});
+        scoreboardAction: function () {
+          scoreboard.render();
+        },
+        gameAction: function () {
+          $("#page").html(gameTmpl());
+        },
+        loginAction: function () {
+          $("#page").html(loginTmpl());
+        }
+    });
 
     return new Router();
 });
