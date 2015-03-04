@@ -1,8 +1,14 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
         <div id="content" class="menu">
-            <a class="menu_btn" href="#game">Start game</a>
-            <a class="menu_btn" href="#login">Login</a>
-            <a class="menu_btn" href="#scoreboard">Scoreboard</a>
+            <div class="menu_btn">
+                <a href="#game">Start game</a>
+            </div>
+            <div class="menu_btn">
+                <a href="#login">Login</a>
+            </div>
+            <div class="menu_btn">
+                 <a href="#scoreboard">Scoreboard</a>
+            </div>
         </div>
 </fest:template>
