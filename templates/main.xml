@@ -10,6 +10,9 @@
             <div class="menu_btn">
                  <a href="#scoreboard">Scoreboard</a>
             </div>
+            <div class="menu_btn">
+                 <a href="#signin">Registration</a>
+            </div>
         </div>
 
 </fest:template>

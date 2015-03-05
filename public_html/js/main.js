@@ -9,6 +9,7 @@ require.config({
         loginTmpl: "tmpl/login",
         gameTmpl: "tmpl/game",
         scoreboardTmpl: "tmpl/scoreboard",
+        signinTmpl: "tmpl/signin",
         scoreboard: "views/scoreboard",
         score: "models/score",
         scores: "collections/scores"
