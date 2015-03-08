@@ -5,8 +5,9 @@
 
     <div class="login__form__inputgroup">
       <div class="login__form__inputgroup__line">
-        <span class="glyphicon glyphicon-user
-              login__form__inputgroup__line__icon"/>
+        <span class="login__form__inputgroup__line__icon">
+          <span class="glyphicon glyphicon-user"></span>
+        </span>
         <input type="text"
                class="login__form__inputgroup__line__input"
                placeholder="Username"
@@ -19,8 +20,8 @@
 
     <div class="login__form__inputgroup">
       <div class="login__form__inputgroup__line">
-        <span class="glyphicon glyphicon-envelope
-                     login__form__inputgroup__line__icon">
+        <span class="login__form__inputgroup__line__icon">
+          <span class="glyphicon glyphicon-envelope"></span>
         </span>
         <input type="email"
                class="login__form__inputgroup__line__input"
@@ -34,8 +35,8 @@
 
     <div class="login__form__inputgroup">
       <div class="login__form__inputgroup__line">
-        <span class="glyphicon glyphicon-lock
-                     login__form__inputgroup__line__icon">
+        <span class="login__form__inputgroup__line__icon">
+          <span class="glyphicon glyphicon-lock"></span>
         </span>
         <input type="password"
                class="login__form__inputgroup__line__input"
