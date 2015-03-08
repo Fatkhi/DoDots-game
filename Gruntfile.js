@@ -9,25 +9,19 @@ module.exports = function (grunt) {
                     interrupt: true,
                     atBegin: true
                 }
-            }
-        },
-        server: {
-            files: [
-                    'public_html/js/**/*.js', /* следим за статикой */
-                    'public_html/css/**/*.css'
-                ],
-            options: {
-                interrupt: true,
-                livereload: true /* перезагрузить страницу */
-            }
-        },
-        connect: {
-            server: {
-                options: {
-                    port: 9001,
-                    base: 'www-root'
-                }
-            }
+            },
+						server: {
+							files: [
+											'public_html/js/**/*.js', /* следим за статикой */
+											'public_html/css/**/*.css',
+										  'public_html/*.html',
+											'public_html/**/*.html'
+									],
+							options: {
+									interrupt: true,
+									livereload: true /* перезагрузить страницу */
+							}
+						}
         },
         shell: {
             options: {
@@ -65,7 +59,6 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');

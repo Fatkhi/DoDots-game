@@ -4,14 +4,14 @@ define('router', [
     'loginTmpl',
     'scoreboard',
     'mainTmpl',
-    'signinTmpl'
+    'signin'
 ], function(
     Backbone,
     gameTmpl,
     loginTmpl,
     scoreboard,
     mainTmpl,
-    signinTmpl
+    signin
 ){
 
     var Router = Backbone.Router.extend({
@@ -21,32 +21,25 @@ define('router', [
             'login': 'loginAction',
             'main': 'mainAction',
             'signin': 'signinAction',
-            '': 'mainAction'
+            '': 'mainAction',
+            "!/" : "mainAction"
         },
         mainAction: function () {
-          $(document).ready(function(){
-            $("#page").html(mainTmpl());
-          });
+          $("#page").html(mainTmpl());
         },
         scoreboardAction: function () {
-          scoreboard.render();
+          $("#page").html(scoreboard.render());
         },
         gameAction: function () {
-          $(document).ready(function(){
-            $("#page").html(gameTmpl());
-          });
+          $("#page").html(gameTmpl());
         },
         loginAction: function () {
-          $(document).ready(function(){
-            $("#page").html(loginTmpl());
-          });
+          $("#page").html(loginTmpl());
         },
         signinAction: function () {
-          $(document).ready(function(){
-            $("#page").html(signinTmpl());
-          });
+          $("#page").html(signin.render());
         }
     });
 
-    return new Router();
+    return Router;
 });

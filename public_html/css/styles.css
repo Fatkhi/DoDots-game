@@ -62,5 +62,12 @@ a:visited {
     text-decoration: none;
 }
 
+.login__form__inputgroup__line__input_valid {
+  box-shadow: 0 0 4px 2px green;
+}
+
+.login__form__inputgroup__line__input_invalid {
+  box-shadow: 0 0 4px 2px red;
+}
 
 

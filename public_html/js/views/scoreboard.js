@@ -12,13 +12,11 @@ define('scoreboard', [
         model: ScoreCollection,
         template: tmpl,
         initialize: function () {
-            this.listenTo(this.model, "change", this.render);
+          this.listenTo(this.model, "change", this.render);
         },
         render: function () {
-            var self = this
-            $(document).ready(function(){
-              $("#page").html(self.template({players:self.model.models}));
-            });
+          this.$el.html(this.template({players:this.model.models}));
+          return this.$el;
         },
         show: function () {
             // TODO

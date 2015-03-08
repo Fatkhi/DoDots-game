@@ -2,17 +2,18 @@ require.config({
     urlArgs: "_=" + (new Date()).getTime(),
     baseUrl: "js",
     paths: {
-        jquery: "lib/jquery",
+        jquery:     "lib/jquery",
         underscore: "lib/underscore",
-        backbone: "lib/backbone",
-        mainTmpl: "tmpl/main",
-        loginTmpl: "tmpl/login",
-        gameTmpl: "tmpl/game",
+        backbone:   "lib/backbone",
+        mainTmpl:       "tmpl/main",
+        loginTmpl:      "tmpl/login",
+        gameTmpl:       "tmpl/game",
         scoreboardTmpl: "tmpl/scoreboard",
-        signinTmpl: "tmpl/signin",
+        signinTmpl:     "tmpl/signin",
         scoreboard: "views/scoreboard",
-        score: "models/score",
-        scores: "collections/scores"
+        signin:     "views/signin",
+        score:      "models/score",
+        scores:     "collections/scores"
     },
     shim: {
         'backbone': {
@@ -35,6 +36,8 @@ define([
     router,
     mainTmpl
 ){
-    Backbone.history.start();
-    $('#page').html(mainTmpl());
+    $(function(){
+      new router();
+      Backbone.history.start();
+    });
 });

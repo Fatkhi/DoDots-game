@@ -1,0 +1,14 @@
+{
+  status:"${status}",
+  users:[
+    <#assign h=users>
+    <#assign vals = h?values>
+    <#list vals as val>
+    {
+      username: "${val.getUsername()}",
+      userid  : "${val.getID()}"
+    }
+    </#list>
+
+  ]
+}
