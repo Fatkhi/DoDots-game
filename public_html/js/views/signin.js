@@ -37,10 +37,9 @@ function dispatch(self, event, form) {
 }
 
     var View = Backbone.View.extend({
-        model: new User(),
         template: tmpl,
         initialize: function () {
-          this.listenTo(this.model, "change", this.re_render);
+          this.listenTo(this.model, "register", this.re_render);
         },
         render: function () {
           var self = this;
@@ -71,5 +70,5 @@ function dispatch(self, event, form) {
           this.$el.hide()
         }
     });
-    return new View();
+    return View;
 });

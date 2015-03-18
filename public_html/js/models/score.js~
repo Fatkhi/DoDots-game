@@ -73,7 +73,7 @@ define('score', [
     },
 
     authenticate: function() {
-      var json = this.toJSON()
+      var json = this.to_JSON()
       var self = this
       $.ajax({
         url: "/login",
@@ -81,12 +81,9 @@ define('score', [
         data: json
       }).success(function(data) {
         data = $.parseJSON(data)
-        if(data.status === "OK") {
+        alert(data.message)
+        if(data.status === "OK")
           self.set({is_authenticated: true});
-          window.location.replace("#")
-        } else {
-          alert(data.message)
-        }
       });
     },
 
@@ -100,29 +97,16 @@ define('score', [
     register: function(){
       var json = this.toJSON()
       if(this.isValid()) {
-        var data = $.ajax({
+        return $.ajax({
           url: "/signin",
           type: "POST",
           data: json
         });
-        this.getInfo();
-        return data;
       }
-    },
-
-    getInfo: function(){
-      var self = this;
-      $.ajax({
-        url: "/getinfo",
-        type: "GET"
-      }).success(function(data) {
-        data = $.parseJSON(data);
-        self.set({name: data.username, is_authenticated: data.loggedIn})
-      });
     }
   });
   Backbone.Model.definitions = {
-    current_user: new Player()
+    current_user: new Player();
   }
   return Player;
 });

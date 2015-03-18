@@ -10,10 +10,14 @@ require.config({
         gameTmpl:       "tmpl/game",
         scoreboardTmpl: "tmpl/scoreboard",
         signinTmpl:     "tmpl/signin",
+        userpanelTmpl:  "tmpl/userpanel",
         scoreboard: "views/scoreboard",
         signin:     "views/signin",
+        login:      "views/login",
+        userpanel:  "views/userpanel",
         score:      "models/score",
-        scores:     "collections/scores"
+        scores:     "collections/scores",
+
     },
     shim: {
         'backbone': {
@@ -30,14 +34,18 @@ define([
     'backbone',
     'router',
     'mainTmpl',
+    'userpanel',
     'jquery'
 ], function(
     Backbone,
     router,
-    mainTmpl
+    mainTmpl,
+    userpanel
 ){
     $(function(){
+      var upanel = new userpanel();
       new router();
       Backbone.history.start();
+      $("#topbar").html(upanel.render());
     });
 });
