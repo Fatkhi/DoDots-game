@@ -12,10 +12,11 @@ define('login', [
     var password = form.find('#password').val();
     self.model.set({name: uname,
                     password: password});
-    self.model.authenticate();
-    if (self.model.get('is_authenticated')) {
-      window.location = "http://localhost:8080"
-    }
+    self.model.authenticate().done(function(){
+      if (self.model.get('is_authenticated')) {
+        window.location.replace('#')
+      }
+    })
     return false;
   }
 

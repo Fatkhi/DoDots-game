@@ -104,3 +104,23 @@ a:visited {
   overflow: hidden;
   vertical-align: middle;
 }
+
+.userpanel__btns {
+  display: inline-block;
+}
+
+.userpanel__btns__btn {
+  margin: 5px;
+  padding: 5px;
+  background-color: #CB4C57;
+  border: 2px solid green;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 1px green;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+
+.userpanel__btns__btn:hover {
+  background-color: #DB5C87;
+}

@@ -16,6 +16,9 @@ define('userpanel', [
       render: function () {
         var self = this;
         this.$el.html(this.template(self.model));
+        this.$el.find('.userpanel__btns__btn__logout').on('click', function() {
+          self.model.logout();
+        });
         return this.$el;
       },
       show: function () {

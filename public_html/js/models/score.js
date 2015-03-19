@@ -75,18 +75,25 @@ define('score', [
     authenticate: function() {
       var json = this.toJSON()
       var self = this
-      $.ajax({
+      return $.ajax({
         url: "/login",
         type: "POST",
         data: json
       }).success(function(data) {
         data = $.parseJSON(data)
         if(data.status === "OK") {
-          self.set({is_authenticated: true});
-          window.location.replace("#")
-        } else {
-          alert(data.message)
+          self.set('is_authenticated', true);
         }
+      });
+    },
+
+    logout: function() {
+      var self=this;
+      $.ajax({
+        url: "/logout",
+        type: "POST"
+      }).success(function() {
+        self.getInfo();
       });
     },
 

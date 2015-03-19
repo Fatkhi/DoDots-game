@@ -61,6 +61,13 @@ function dispatch(self, event, form) {
           this.model.register().done(function(data){
             data = $.parseJSON(data)
             alert(data.message);
+            if(data.status=="OK") {
+              self.model.authencticate().done(function(){
+                if (self.model.get('is_authenticated')) {
+                  window.location.replace('#')
+                }
+              })
+            }
           })
         },
         show: function () {

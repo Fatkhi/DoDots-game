@@ -9,6 +9,11 @@
     </span>
     <img  class="userpanel__userinfo__picture" alt="Userpicture"/>
   </div>
+  <div class="userpanel__btns">
+    <span class="userpanel__btns__btn userpanel__btns__btn__logout">
+      Logout
+    </span>
+  </div>
 </div>
 
 </fest:template>
