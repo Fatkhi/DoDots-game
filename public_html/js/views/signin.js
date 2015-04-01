@@ -46,7 +46,9 @@ function dispatch(self, event, form) {
           this.$el.html(this.template());
           this.$el.find('form').submit(function(event){
             event.preventDefault();
-            return dispatch(self, event, $(this));
+            dispatch(self, event, $(this));
+            self.re_render();
+            return false;
           })
           return this.$el;
         },
@@ -58,17 +60,20 @@ function dispatch(self, event, form) {
           validateElement('email', form, validation);
           validateElement('password', form, validation);
 
-          this.model.register().done(function(data){
-            data = $.parseJSON(data)
-            alert(data.message);
-            if(data.status=="OK") {
-              self.model.authencticate().done(function(){
-                if (self.model.get('is_authenticated')) {
-                  window.location.replace('#')
-                }
-              })
-            }
-          })
+          var res = this.model.register()
+          if(res!=null)
+            res.done(function(data){
+              data = $.parseJSON(data)
+              alert(data.message);
+              if(data.status=="OK") {
+                self.model.authencticate().done(function(){
+                  if (self.model.get('is_authenticated')) {
+                    window.location.replace('#')
+                  }
+                })
+              }
+            })
+          this.model.getInfo();
         },
         show: function () {
           this.$el.show()

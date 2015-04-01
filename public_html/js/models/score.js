@@ -115,6 +115,7 @@ define('score', [
         this.getInfo();
         return data;
       }
+      return null;
     },
 
     getInfo: function(){
