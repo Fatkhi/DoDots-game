@@ -9,7 +9,6 @@ define('mainview', [
         views: [],
         add_view: function(listenee) {
           this.views.push(listenee)
-          console.log('add view')
           this.listenTo(listenee, "show", function() {
             this.views.forEach(function(currentValue, index, array) {
               if(currentValue != listenee)
