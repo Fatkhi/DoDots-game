@@ -55,6 +55,7 @@ function dispatch(self, event, form) {
         re_render: function() {
           var validation = this.model.validate();
           var form = this.$el.find('form')
+          var self = this;
 
           validateElement('name', form, validation);
           validateElement('email', form, validation);
@@ -66,7 +67,7 @@ function dispatch(self, event, form) {
               data = $.parseJSON(data)
               alert(data.message);
               if(data.status=="OK") {
-                self.model.authencticate().done(function(){
+                self.model.authenticate().done(function(){
                   if (self.model.get('is_authenticated')) {
                     window.location.replace('#')
                   }
