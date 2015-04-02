@@ -16,6 +16,7 @@ define('login', [
       if (self.model.get('is_authenticated')) {
         window.location.replace('#')
       }
+      self.model.getInfo()
     })
     return false;
   }
