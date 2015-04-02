@@ -1,27 +1,24 @@
-define([
+define('index',[
     'backbone',
-    'tmpl/main'
+    'mainTmpl'
 ], function(
     Backbone,
     tmpl
 ){
 
     var View = Backbone.View.extend({
-
         template: tmpl,
-        initialize: function () {
-            // TODO
-        },
         render: function () {
-            // TODO
+            this.$el.html(this.template());
+            return this.$el
         },
         show: function () {
-            // TODO
+            this.$el.show()
+            this.trigger("show")
         },
         hide: function () {
-            // TODO
+            this.$el.hide()
         }
-
     });
 
     return new View();

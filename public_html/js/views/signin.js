@@ -78,6 +78,7 @@ function dispatch(self, event, form) {
         },
         show: function () {
           this.$el.show()
+          this.trigger("show")
         },
         hide: function () {
           this.$el.hide()

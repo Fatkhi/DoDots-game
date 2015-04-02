@@ -1,25 +1,42 @@
 define('router', [
     'backbone',
-    'gameTmpl',
+    'game',
     'login',
     'scoreboard',
-    'mainTmpl',
+    'index',
     'signin',
-    'score'
+    'score',
+    'mainview'
 ], function(
     Backbone,
-    gameTmpl,
+    game,
     Login,
     scoreboard,
-    mainTmpl,
+    main,
     Signin,
-    User
+    User,
+    MainView
 ){
 
     var Router = Backbone.Router.extend({
         initialize: function() {
           this.login = new Login({model:Backbone.Model.definitions.current_user})
           this.signin = new Signin({model:Backbone.Model.definitions.current_user})
+          this.scoreboard = scoreboard;
+          this.main = main;
+          this.game = game;
+          this.manager = new MainView();
+          this.manager.add_view(this.login);
+          this.manager.add_view(this.signin);
+          this.manager.add_view(this.scoreboard);
+          this.manager.add_view(this.main);
+          this.manager.add_view(this.game);
+
+          $("#page").append(this.login.render());
+          $("#page").append(this.signin.render());
+          $("#page").append(this.scoreboard.render());
+          $("#page").append(this.main.render());
+          $("#page").append(this.game.render());
         },
         routes: {
             'scoreboard': 'scoreboardAction',
@@ -32,19 +49,19 @@ define('router', [
             "!/" : "mainAction"
         },
         mainAction: function () {
-          $("#page").html(mainTmpl());
+          this.main.show();
         },
         scoreboardAction: function () {
-          $("#page").html(scoreboard.render());
+          this.scoreboard.show();
         },
         gameAction: function () {
-          $("#page").html(gameTmpl());
+          this.game.show()
         },
         loginAction: function () {
-          $("#page").html(this.login.render());
+          this.login.show()
         },
         signinAction: function () {
-          $("#page").html(this.signin.render());
+          this.signin.show()
         },
         userpageAction: function() {
 

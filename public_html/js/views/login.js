@@ -36,6 +36,7 @@ define('login', [
       },
       show: function () {
         this.$el.show()
+        this.trigger("show")
       },
       hide: function () {
         this.$el.hide()

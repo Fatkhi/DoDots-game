@@ -17,6 +17,9 @@ require.config({
         userpanel:  "views/userpanel",
         score:      "models/score",
         scores:     "collections/scores",
+        mainview:   "views/mainview",
+        index:      "views/main",
+        game:       "views/game"
 
     },
     shim: {
@@ -33,13 +36,11 @@ require.config({
 define([
     'backbone',
     'router',
-    'mainTmpl',
     'userpanel',
     'jquery'
 ], function(
     Backbone,
     router,
-    mainTmpl,
     userpanel
 ){
     $(function(){

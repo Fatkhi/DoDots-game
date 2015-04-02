@@ -19,10 +19,11 @@ define('scoreboard', [
           return this.$el;
         },
         show: function () {
-            // TODO
+            this.$el.show();
+            this.trigger("show")
         },
         hide: function () {
-            // TODO
+            this.$el.hide();
         }
 
     });
