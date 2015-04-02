@@ -44,9 +44,10 @@ define('router', [
             'login': 'loginAction',
             'main': 'mainAction',
             'signin': 'signinAction',
-            'userpage': 'userpageAction',
+            //'userpage': 'userpageAction',
             '': 'mainAction',
-            "!/" : "mainAction"
+            "!/" : "mainAction",
+            "*path": "defaultAction"
         },
         mainAction: function () {
           this.main.show();
@@ -63,8 +64,8 @@ define('router', [
         signinAction: function () {
           this.signin.show()
         },
-        userpageAction: function() {
-
+        defaultAction: function(path) {
+          this.main.show();
         }
     });
 

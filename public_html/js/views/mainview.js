@@ -16,6 +16,11 @@ define('mainview', [
                 currentValue.hide();
             })
           })
+        },
+        hide_all: function() {
+          this.views.forEach(function(currentValue, index, array) {
+            currentValue.hide();
+          })
         }
     });
     return View;
