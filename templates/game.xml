@@ -1,6 +1,14 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
-  <div id="wrap">
+  <div id="wrap" class="game">
+    <fest:for from="1" to="7" index="i">
+      <div class="game__row">
+        <fest:for from="1" to="7" index="j">
+          <div class="game__row__circle game__row__circle_unselected"></div>
+        </fest:for>
+      </div>
+    </fest:for>
+
   </div>
   <div  class="btn-group-vertical" >
       <a href="#main" class="btn other_btn">Back</a>

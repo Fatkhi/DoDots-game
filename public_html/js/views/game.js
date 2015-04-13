@@ -15,22 +15,17 @@ var first = true;
         first: true,
         render: function () {
             this.$el.html(this.template());
-            for (var i = 0; i < 7; i++) {
-              this.$el.find('#wrap').append($('<div/>').addClass('row'));
-            };
-            for (var k = 0; k < 7; k++) {
-                this.$el.find('.row').append($('<div/>').addClass('circle unselected'));
-              }
-            this.$el.find('.circle').click(function(){
-              if (first == true && $(this).hasClass('unselected')) {
+
+            this.$('.game__row__circle').click(function(){
+              if (first == true && $(this).hasClass('game__row__circle_unselected')) {
                 first = false;
-                $(this).removeClass('unselected');
-                $(this).addClass('clicked_first');
+                $(this).removeClass('game__row__circle_unselected');
+                $(this).addClass('game__row__circle_clicked_first');
               }
-              else if(first == false && $(this).hasClass('unselected')) {
+              else if(first == false && $(this).hasClass('game__row__circle_unselected')) {
                 first = true;
-                $(this).removeClass('unselected');
-                $(this).addClass('clicked_second');
+                $(this).removeClass('game__row__circle_unselected');
+                $(this).addClass('game__row__circle_clicked_second');
               }
             });
             return this.$el

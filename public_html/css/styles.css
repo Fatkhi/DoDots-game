@@ -62,6 +62,8 @@ a:visited {
     text-decoration: none;
 }
 
+/*** Login ***/
+
 .login__form__inputgroup {
   background-color: inherit;
   text-align: center;
@@ -176,33 +178,30 @@ a:visited {
 
 
 
-
-
-/*FIXME: BEM*/
-#wrap {
-  margin-left: 260px;
-  margin-right: 260px;
+/*** Game ***/
+.game {
+  margin: 0 auto;
   width: 700px;
   height: 700px;
   background-color: RGB(250, 248, 239);
 }
-.row {
+.game__row {
     padding: 10px 10px 0px 0px;
     height:85px;
 }
-.circle {
+.game__row__circle {
     display: inline-block;
     margin: 0px 0px 0px 10px;
     height:100%;
     width:85px;
     border-radius: 50%;
 }
-.unselected {
+.game__row__circle_unselected {
   background: #EDE0C9;
 }
-.clicked_first {
+.game__row__circle_clicked_first {
   background: RGB(78, 93, 105);
 }
-.clicked_second {
+.game__row__circle_clicked_second {
   background: RGB(203, 76, 87);
 }
