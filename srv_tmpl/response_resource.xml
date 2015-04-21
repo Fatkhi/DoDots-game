@@ -1,0 +1,7 @@
+<object class="resources.ResponseResource">
+  <status>status</status>
+  <message>message</message>
+
+  <ok>OK</ok>
+  <error>Error</error>
+</object>

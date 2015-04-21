@@ -1,0 +1,31 @@
+<fest:template xmlns:fest="http://fest.mail.ru"
+          context_name="json">
+
+  <div class="userpage">
+    <div class="userpage__row">
+      <div class="userpage__row__label">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        Username
+      </div>
+      <div class="userpage__row__content" id="name"></div>
+    </div>
+    <div class="userpage__row">
+      <div class="userpage__row__label">
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        Email
+      </div>
+      <div class="userpage__row__content" id="email"></div>
+    </div>
+    <div class="userpage__row">
+      <div class="userpage__row__label">
+        <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+        Score
+      </div>
+      <div class="userpage__row__content" id="score"></div>
+    </div>
+    <a id="backBtn" href="#main"
+         class="login__form__inputgroup__backbtn">
+         Back
+      </a>
+  </div>
+</fest:template>

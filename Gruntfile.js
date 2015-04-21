@@ -10,18 +10,18 @@ module.exports = function (grunt) {
                     atBegin: true
                 }
             },
-						server: {
-							files: [
-											'public_html/js/**/*.js', /* следим за статикой */
-											'public_html/css/**/*.css',
-										  'public_html/*.html',
-											'public_html/**/*.html'
-									],
-							options: {
-									interrupt: true,
-									livereload: true /* перезагрузить страницу */
-							}
-						}
+            server: {
+              files: [
+                      'public_html/js/**/*.js', /* следим за статикой */
+                      'public_html/css/**/*.css',
+                      'public_html/*.html',
+                      'public_html/**/*.html'
+                  ],
+              options: {
+                  interrupt: true,
+                  livereload: true /* перезагрузить страницу */
+              }
+            }
         },
         shell: {
             options: {
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                 stderr: true
             },
             server: {
-                command: 'java -cp tp_server.jar main.Main'
+                command: 'java -cp dodots.jar main.Main'
             }
         },
         fest: {

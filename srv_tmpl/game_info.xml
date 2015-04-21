@@ -1,0 +1,18 @@
+<object class="resources.GameInfoResource">
+  <connectCloseStatus>Close</connectCloseStatus>
+  <connectCloseMessage>Connection closed.</connectCloseMessage>
+
+  <commandAcceptedMessage>Data accepted.</commandAcceptedMessage>
+  <commandInvalidMessage>Invalid data.</commandInvalidMessage>
+
+  <gameStartStatus>Game start</gameStartStatus>
+  <gameStartMessage>Let the game start!</gameStartMessage>
+
+  <boardCall>board</boardCall>
+
+  <firstPlayerFieldCall>is_first</firstPlayerFieldCall>
+  <whoMovesCall>who_moves</whoMovesCall>
+
+  <boardSizeX>5</boardSizeX>
+  <boardSizeY>5</boardSizeY>
+</object>

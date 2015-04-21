@@ -11,16 +11,17 @@ require.config({
         scoreboardTmpl: "tmpl/scoreboard",
         signinTmpl:     "tmpl/signin",
         userpanelTmpl:  "tmpl/userpanel",
+        userpageTmpl:   "tmpl/userpage",
         scoreboard: "views/scoreboard",
         signin:     "views/signin",
         login:      "views/login",
         userpanel:  "views/userpanel",
+        userpage:   "views/userpage",
         score:      "models/score",
         scores:     "collections/scores",
         mainview:   "views/mainview",
         index:      "views/main",
         game:       "views/game"
-
     },
     shim: {
         'backbone': {

@@ -78,7 +78,8 @@ a:visited {
   border-radius: 3px;
   background: rgb(64,199,129);
   transition: 0.2s;/
-  max-width: 50%;
+  max-width: 100px;
+  text-align: center;
 
   margin: auto;
   margin-top: 15px;
@@ -101,7 +102,8 @@ a:visited {
   background: rgb(212,75,56);
   transition: 0.2s;
 
-  max-width: 5%;
+  max-width: 100px;
+  text-align: center;
   margin: auto;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -204,4 +206,26 @@ a:visited {
 }
 .game__row__circle_clicked_second {
   background: RGB(203, 76, 87);
+}
+
+/*** Userpage ***/
+
+.userpage {
+  display:block;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.userpage__row .glyphicon {
+  margin: 0 0.5em;
+}
+
+.userpage__row__label {
+  display: inline;
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+.userpage__row__content {
+  display: inline;
 }

@@ -1,0 +1,21 @@
+<object class="resources.AccountManagerResource">
+  <adminName>admin</adminName>
+  <adminPassword>admin</adminPassword>
+  <adminEmail>admin@localhost</adminEmail>
+
+  <nullQueryAnswer>Invalid parameters specified</nullQueryAnswer>
+  <userAlreadyExists>
+    This username already exists. Try another username.
+  </userAlreadyExists>
+  <incorrectPassword>
+    You have specified an incorrect password. Please, check out your CapsLock key and ensure that you use right keyboard layout.
+  </incorrectPassword>
+  <userNotFound>
+    We don't know user with such a username. Probably you would like to sign in?
+  </userNotFound>
+
+  <authSuccess>
+    Login success
+  </authSuccess>
+
+</object>

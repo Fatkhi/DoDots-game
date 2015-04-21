@@ -1,0 +1,4 @@
+<object class="resources.GameProviderResource">
+  <connectSuccessStatus>Connected</connectSuccessStatus>
+  <connectSuccessMessage>Connection successfull. Waiting for another player.</connectSuccessMessage>
+</object>

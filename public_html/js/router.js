@@ -6,7 +6,8 @@ define('router', [
     'index',
     'signin',
     'score',
-    'mainview'
+    'mainview',
+    'userpage'
 ], function(
     Backbone,
     game,
@@ -15,7 +16,8 @@ define('router', [
     main,
     Signin,
     User,
-    MainView
+    MainView,
+    Userpage
 ){
 
     var Router = Backbone.Router.extend({
@@ -25,18 +27,21 @@ define('router', [
           this.scoreboard = scoreboard;
           this.main = main;
           this.game = game;
+          this.userpage = new Userpage({model:Backbone.Model.definitions.current_user});
           this.manager = new MainView();
           this.manager.add_view(this.login);
           this.manager.add_view(this.signin);
           this.manager.add_view(this.scoreboard);
           this.manager.add_view(this.main);
           this.manager.add_view(this.game);
+          this.manager.add_view(this.userpage);
 
           $("#page").append(this.login.render());
           $("#page").append(this.signin.render());
           $("#page").append(this.scoreboard.render());
           $("#page").append(this.main.render());
           $("#page").append(this.game.render());
+          $("#page").append(this.userpage.render());
         },
         routes: {
             'scoreboard': 'scoreboardAction',
@@ -44,7 +49,7 @@ define('router', [
             'login': 'loginAction',
             'main': 'mainAction',
             'signin': 'signinAction',
-            //'userpage': 'userpageAction',
+            'userpage': 'userpageAction',
             '': 'mainAction',
             "!/" : "mainAction",
             "*path": "defaultAction"
@@ -63,6 +68,9 @@ define('router', [
         },
         signinAction: function () {
           this.signin.show()
+        },
+        userpageAction: function () {
+          this.userpage.show()
         },
         defaultAction: function(path) {
           this.main.show();
