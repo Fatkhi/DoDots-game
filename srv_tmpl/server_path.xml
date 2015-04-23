@@ -1,0 +1,10 @@
+<object class="resources.ServerPathResource">
+  <signinUrl>/signin</signinUrl>
+  <loginUrl>/login</loginUrl>
+  <logoutUrl>/logout</logoutUrl>
+  <userInfoUrl>/getinfo</userInfoUrl>
+  <adminInfoUrl>/getadmin/*</adminInfoUrl>
+  <webSocketUrl>/game</webSocketUrl>
+
+  <staticDir>public_html</staticDir>
+</object>

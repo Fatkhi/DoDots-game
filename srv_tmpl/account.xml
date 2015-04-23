@@ -18,4 +18,12 @@
     Login success
   </authSuccess>
 
+  <registrationSuccess>
+    Registration complete
+  </registrationSuccess>
+
+  <usernameAPIName>name</usernameAPIName>
+  <emailAPIName>email</emailAPIName>
+  <passwordAPIName>password</passwordAPIName>
+
 </object>

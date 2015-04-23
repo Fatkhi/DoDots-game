@@ -1,0 +1,12 @@
+<object class="resources.DBResource">
+  <dbURL>jdbc:mysql://localhost:3306/</dbURL>
+  <dbUser>root</dbUser>
+  <dbPassword>0000</dbPassword>
+  <dbName>tp_dodots_production</dbName>
+  <dbTestName>tp_dodots_test</dbTestName>
+  <dbDialect>org.hibernate.dialect.MySQLDialect</dbDialect>
+  <dbDriverClassName>com.mysql.jdbc.Driver</dbDriverClassName>
+  <showSql>true</showSql>
+  <hbm2DdlAuto>update</hbm2DdlAuto>
+  <flushMode>COMMIT</flushMode>
+</object>
