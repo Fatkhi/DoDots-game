@@ -1,0 +1,23 @@
+/*** Userpage ***/
+
+.userpage {
+  display:block;
+  margin: 0 auto;
+  width: 200px;
+
+  &__row {
+    .glyphicon {
+      margin: 0 0.5em;
+    }
+
+    &__label {
+      display: inline;
+      font-weight: bold;
+      margin-right: 1em;
+    }
+
+    &__content {
+      display: inline;
+    }
+  }
+}

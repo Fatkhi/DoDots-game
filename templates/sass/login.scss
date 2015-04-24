@@ -1,0 +1,57 @@
+@mixin standardButton {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  transition: 0.2s;
+  max-width: 100px;
+  text-align: center;
+
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: block;
+  padding: 10px;
+}
+
+/*** Login ***/
+
+.login {
+  &__form {
+    &__inputgroup {
+      background-color: inherit;
+      text-align: center;
+
+      &__submitbtn {
+        @include standardButton;
+        background: rgb(64,199,129);
+
+        &:hover {
+          background: rgb(232,95,76);
+        }
+      }
+
+      &__backbtn {
+        @include standardButton;
+        background: rgb(212,75,56);
+
+        &:hover {
+          background: rgb(232,95,76);
+        }
+      }
+
+      &__line {
+        &__input {
+          &_valid {
+            box-shadow: 0 0 4px 2px green;
+          }
+
+          &_invalid {
+            box-shadow: 0 0 4px 2px red;
+          }
+        }
+      }
+    }
+  }
+}

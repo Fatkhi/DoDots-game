@@ -1,0 +1,23 @@
+/*** Game ***/
+.game {
+  margin: 0 auto;
+  width: 700px;
+  height: 700px;
+  background-color: RGB(250, 248, 239); }
+  .game__row {
+    padding: 10px 10px 0px 0px;
+    height: 85px; }
+    .game__row__circle {
+      display: inline-block;
+      margin: 0px 0px 0px 10px;
+      height: 100%;
+      width: 85px;
+      border-radius: 50%; }
+      .game__row__circle_unselected {
+        background: #EDE0C9; }
+      .game__row__circle_clicked_first {
+        background: RGB(78, 93, 105); }
+      .game__row__circle_clicked_second {
+        background: RGB(203, 76, 87); }
+
+/*# sourceMappingURL=game.css.map */

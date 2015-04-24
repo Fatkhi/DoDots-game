@@ -2,7 +2,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         watch: {
-            fest: {
+            fest_tmpl: {
                 files: ['templates/*.xml'],
                 tasks: ['fest'],
                 options: {
@@ -21,6 +21,13 @@ module.exports = function (grunt) {
                   interrupt: true,
                   livereload: true /* перезагрузить страницу */
               }
+            },
+            sass_tmpl: {
+              files: ['templates/sass/**/*.scss'],
+              tasks: ['shell:clear_sass', 'sass', 'concat'],
+              options: {
+                atBegin: true
+              }
             }
         },
         shell: {
@@ -30,6 +37,9 @@ module.exports = function (grunt) {
             },
             server: {
                 command: 'java -cp dodots.jar main.Main'
+            },
+            clear_sass: {
+                command: 'rm -r -f ./templates/sass/css/'
             }
         },
         fest: {
@@ -51,14 +61,34 @@ module.exports = function (grunt) {
             }
         },
         concurrent: {
-            target: ['watch', 'shell'],
+            target: ['watch', 'shell:server'],
             options: {
                 logConcurrentOutput: true /* Вывод логов */
             }
+        },
+        sass: {
+          css: {
+            files: [{
+              expand: true,
+              style: 'expanded',
+              cwd: 'templates/sass',
+              src: '**/*.scss',
+              dest: 'templates/sass/css',
+              ext: '.css'
+            }]
+          }
+        },
+        concat: {
+          dist: {
+            src: ['templates/sass/css/**/*.css'],
+            dest: 'public_html/css/all_sass.css'
+          }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');

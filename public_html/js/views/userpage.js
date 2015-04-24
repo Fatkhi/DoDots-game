@@ -25,8 +25,8 @@ define('userpage', [
         this.$('#email').text(this.model.get('email'));
         this.$('#score').text(this.model.get('score'));
 
+        $('#userpage_admininfo').empty();
         if(this.model.get('name') === 'admin') {
-          $('#userpage_admininfo').empty();
           var self = this;
           $.ajax({
             url: "/getadmin",

@@ -1,0 +1,30 @@
+$background: #FAF8EF;
+$bright-text-color: RGB(203, 76, 87);
+$header-font-size: 84pt;
+
+body {
+    background-color: $background;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+
+    font-size: $header-font-size;
+    text-align: center;
+    color: $bright-text-color;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+a {
+    color: inherit;
+}
+a:hover {
+    color: #EDE0C9;
+    text-decoration: none;
+}
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}

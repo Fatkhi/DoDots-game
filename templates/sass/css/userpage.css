@@ -1,0 +1,15 @@
+/*** Userpage ***/
+.userpage {
+  display: block;
+  margin: 0 auto;
+  width: 200px; }
+  .userpage__row .glyphicon {
+    margin: 0 0.5em; }
+  .userpage__row__label {
+    display: inline;
+    font-weight: bold;
+    margin-right: 1em; }
+  .userpage__row__content {
+    display: inline; }
+
+/*# sourceMappingURL=userpage.css.map */

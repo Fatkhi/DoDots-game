@@ -1,0 +1,32 @@
+/*** Game ***/
+.game {
+  margin: 0 auto;
+  width: 700px;
+  height: 700px;
+  background-color: RGB(250, 248, 239);
+
+  &__row {
+    padding: 10px 10px 0px 0px;
+    height:85px;
+
+    &__circle {
+      display: inline-block;
+      margin: 0px 0px 0px 10px;
+      height:100%;
+      width:85px;
+      border-radius: 50%;
+
+      &_unselected {
+        background: #EDE0C9;
+      }
+
+      &_clicked_first {
+        background: RGB(78, 93, 105);
+      }
+
+      &_clicked_second {
+        background: RGB(203, 76, 87);
+      }
+    }
+  }
+}

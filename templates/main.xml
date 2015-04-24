@@ -1,16 +1,16 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
           <div id="content" class="menu">
-            <div class="menu_btn">
+            <div class="menu__btn">
                 <a href="#game">Start game</a>
             </div>
-            <div class="menu_btn">
+            <div class="menu__btn">
                 <a href="#login">Login</a>
             </div>
-            <div class="menu_btn">
+            <div class="menu__btn">
                  <a href="#scoreboard">Scoreboard</a>
             </div>
-            <div class="menu_btn">
+            <div class="menu__btn">
                  <a href="#signin">Registration</a>
             </div>
         </div>
