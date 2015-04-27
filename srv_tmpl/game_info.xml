@@ -13,6 +13,6 @@
   <firstPlayerFieldCall>is_first</firstPlayerFieldCall>
   <whoMovesCall>who_moves</whoMovesCall>
 
-  <boardSizeX>5</boardSizeX>
-  <boardSizeY>5</boardSizeY>
+  <boardSizeX>10</boardSizeX>
+  <boardSizeY>10</boardSizeY>
 </object>

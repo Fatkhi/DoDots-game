@@ -1,30 +1,36 @@
 /*** Game ***/
+
+$cellsize: 85px;
+$cellpadding: 10px;
+$rowcount: 10;
+$colcount: 10;
+
 .game {
   margin: 0 auto;
-  width: 700px;
-  height: 700px;
+  width: ($cellsize+$cellpadding*2)*$colcount;
+  height: ($cellsize+$cellpadding)*$rowcount;
   background-color: RGB(250, 248, 239);
 
   &__row {
-    padding: 10px 10px 0px 0px;
-    height:85px;
+    padding: $cellpadding $cellpadding 0 0;
+    height: $cellsize;
 
     &__circle {
       display: inline-block;
-      margin: 0px 0px 0px 10px;
-      height:100%;
-      width:85px;
+      margin: 0 0 0 $cellpadding;
+      height: 100%;
+      width: $cellsize;
       border-radius: 50%;
 
       &_unselected {
         background: #EDE0C9;
       }
 
-      &_clicked_first {
+      &_first {
         background: RGB(78, 93, 105);
       }
 
-      &_clicked_second {
+      &_second {
         background: RGB(203, 76, 87);
       }
     }

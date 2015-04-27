@@ -1,23 +1,23 @@
 /*** Game ***/
 .game {
   margin: 0 auto;
-  width: 700px;
-  height: 700px;
+  width: 1050px;
+  height: 950px;
   background-color: RGB(250, 248, 239); }
   .game__row {
-    padding: 10px 10px 0px 0px;
+    padding: 10px 10px 0 0;
     height: 85px; }
     .game__row__circle {
       display: inline-block;
-      margin: 0px 0px 0px 10px;
+      margin: 0 0 0 10px;
       height: 100%;
       width: 85px;
       border-radius: 50%; }
       .game__row__circle_unselected {
         background: #EDE0C9; }
-      .game__row__circle_clicked_first {
+      .game__row__circle_first {
         background: RGB(78, 93, 105); }
-      .game__row__circle_clicked_second {
+      .game__row__circle_second {
         background: RGB(203, 76, 87); }
 
 /*# sourceMappingURL=game.css.map */

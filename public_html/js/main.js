@@ -21,7 +21,10 @@ require.config({
         scores:     "collections/scores",
         mainview:   "views/mainview",
         index:      "views/main",
-        game:       "views/game"
+        game:       "views/game",
+        cellview:   "views/cellview",
+        board:      "models/board",
+        cell:       "models/cell"
     },
     shim: {
         'backbone': {
