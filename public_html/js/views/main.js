@@ -10,7 +10,7 @@ define('index',[
         template: tmpl,
         render: function () {
             this.$el.html(this.template());
-            return this.$el
+            return this.$el;
         },
         show: function () {
             this.$el.show()

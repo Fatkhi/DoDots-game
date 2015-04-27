@@ -26,6 +26,7 @@ define('game',[
         render: function () {
             var self = this;
             this.$el.html(this.template());
+
             this.$('.game__row').each(function(index, element) {
               $(element).find('.game__row__circle').each(function(jndex, circle) {
                 self.smallViews[index][jndex].setEl(circle);

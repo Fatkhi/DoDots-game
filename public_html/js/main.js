@@ -1,4 +1,5 @@
 require.config({
+    //delete urlArgs before deploy
     urlArgs: "_=" + (new Date()).getTime(),
     baseUrl: "js",
     paths: {
