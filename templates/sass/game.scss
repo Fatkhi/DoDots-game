@@ -12,13 +12,13 @@ $colcount: 10;
   background-color: RGB(250, 248, 239);
 
   &__row {
-    padding: $cellpadding $cellpadding 0 0;
+    margin: $cellpadding $cellpadding 0 0;
     height: $cellsize;
 
     &__circle {
       display: inline-block;
       margin: 0 0 0 $cellpadding;
-      height: 100%;
+      height: $cellsize;
       width: $cellsize;
       border-radius: 50%;
 

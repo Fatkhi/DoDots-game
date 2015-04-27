@@ -17,12 +17,12 @@
   height: 950px;
   background-color: RGB(250, 248, 239); }
   .game__row {
-    padding: 10px 10px 0 0;
+    margin: 10px 10px 0 0;
     height: 85px; }
     .game__row__circle {
       display: inline-block;
       margin: 0 0 0 10px;
-      height: 100%;
+      height: 85px;
       width: 85px;
       border-radius: 50%; }
       .game__row__circle_unselected {
