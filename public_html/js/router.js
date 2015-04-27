@@ -26,7 +26,6 @@ define('router', [
           this.signin = new Signin({model:Backbone.Model.definitions.current_user})
           this.scoreboard = scoreboard;
           this.main = main;
-          console.log(main);
           this.game = game;
           this.userpage = new Userpage({model:Backbone.Model.definitions.current_user});
           this.manager = new MainView();
