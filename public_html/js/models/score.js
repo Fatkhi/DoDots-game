@@ -132,5 +132,6 @@ define('score', [
   Backbone.Model.definitions = {
     current_user: new Player()
   }
+
   return Player;
 });
