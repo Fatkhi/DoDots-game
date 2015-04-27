@@ -1,5 +1,6 @@
 /node_modules
 /.sass-cache
+/srv_tmpl/dbresource.xml
 *.orig
 npm-debug.log
 *~
