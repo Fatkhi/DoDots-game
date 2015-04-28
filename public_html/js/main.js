@@ -41,17 +41,17 @@ require.config({
 define([
     'backbone',
     'router',
-    'userpanel',
+    //'userpanel',
     'jquery'
 ], function(
     Backbone,
-    router,
-    userpanel
+    router
+    //userpanel
 ){
     $(function(){
-      var upanel = new userpanel();
+      //var upanel = new userpanel();
       new router();
       Backbone.history.start();
-      $("#topbar").html(upanel.render());
+      //$("#topbar").html(upanel.render());
     });
 });

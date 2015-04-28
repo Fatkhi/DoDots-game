@@ -81,7 +81,7 @@ define('board', [
       } else if (data.status === "OK" || data.status === "Error") {
         for (i = 0; i < this.get('rownum'); i++) {
           for (j = 0; j < this.get('colnum'); j++) {
-            if (data.who_moves == this.myIndex)
+            if (data.who_moves == 0)//this.myIndex)
               x = data.board[i][j]
             else {
               x = 0
