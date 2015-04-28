@@ -2,18 +2,18 @@
           context_name="json">
           <h1>DoDots</h1>
           <div id="content" class="menu">
-            <div class="menu__btn">
-                <a href="#game">Start game</a>
-            </div>
-            <div class="menu__btn">
-                <a href="#login">Login</a>
-            </div>
-            <div class="menu__btn">
-                 <a href="#scoreboard">Scoreboard</a>
-            </div>
-            <div class="menu__btn">
-                 <a href="#signin">Registration</a>
-            </div>
+            <!-- <div class="menu__btn"> -->
+                <a class="menu__btn" href="#game">Start game</a>
+            <!-- </div> -->
+            <!-- <div class="menu__btn" href="#login"> -->
+                <a class="menu__btn" href="#login">Login</a>
+            <!-- </div> -->
+           <!--  <div class="menu__btn"> -->
+                 <a class="menu__btn" href="#scoreboard">Scoreboard</a>
+            <!-- </div> -->
+            <!-- <div class="menu__btn"> -->
+                 <a class="menu__btn" href="#signin">Registration</a>
+            <!-- </div> -->
         </div>
 
 </fest:template>

@@ -152,7 +152,8 @@ a {
   padding: 10px; }
 .menu__btn:hover {
   background: RGB(143, 122, 102);
-  color: #EDE0C9; }
+  color: #EDE0C9;
+  text-decoration: none; }
 
 /*# sourceMappingURL=menu.css.map */
 
