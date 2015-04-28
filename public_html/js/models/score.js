@@ -125,7 +125,12 @@ define('score', [
         type: "GET"
       }).success(function(data) {
         data = $.parseJSON(data);
-        self.set({name: data.username, is_authenticated: data.loggedIn, email: data.email})
+        self.set({
+          name: data.username,
+          is_authenticated: data.loggedIn,
+          email: data.email,
+          score: data.score
+        })
       });
     }
   });

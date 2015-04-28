@@ -13,7 +13,11 @@ define('board', [
     myIndex: null,
     defaults: {
       "rownum": 10,
-      "colnum": 10
+      "colnum": 10,
+      "score":  0,
+      "turn": "Not your turn",
+      "status": "Authorize first!",
+      "message": ""
     },
     initialize: function() {
       for (i = 0; i < this.get('rownum'); i++) {
@@ -32,6 +36,8 @@ define('board', [
           this.cells[i][j].set('playerIndex', 0);
         }
       }
+      this.set("status",  "Waiting...")
+      this.set("message", "Waiting for another player")
       this.myIndex = this.currentStep = null;
       self = this;
       this.ws = new WebSocket("ws://localhost:8080/game");
@@ -52,20 +58,23 @@ define('board', [
       }
     },
     dispatchMessage: function(data) {
+      console.log(data)
       if (data.status === "Game start") {
         this.currentStep = data.is_first;
+        this.set("status", "Game started");
         if (this.currentStep) {
-          alert("Game started! You are the first player!")
+          this.set("turn", "Your turn");
         } else {
-          alert("Game started! You are the second player!")
+          this.set("turn", "Not your turn");
         }
         if (this.currentStep)
           this.myIndex = 0;
         else
           this.myIndex = 1;
-        alert(data.message);
+        this.set("message", data.message);
       } else if (data.status === "Connected") {
-        alert(data.message)
+        this.set("status",  "Waiting...")
+        this.set("message", data.message)
       } else if (data.status === "OK" || data.status === "Error") {
         for (i = 0; i < this.get('rownum'); i++) {
           for (j = 0; j < this.get('colnum'); j++) {
@@ -82,15 +91,15 @@ define('board', [
           }
         }
         if (data.game_end) {
-          alert("Game end!")
+          this.set("status", "Game end!")
         }
-        alert("Your score: " + data.score[this.myIndex]);
+        this.set("score", data.score[this.myIndex]);
         if (data.who_moves == this.myIndex) {
           this.currentStep = true;
-          alert("Your turn!")
+          this.set("turn", "Your turn!")
         } else {
           this.currentStep = false;
-          alert("Not your turn!")
+          this.set("turn", "Not your turn!")
         }
       }
     }

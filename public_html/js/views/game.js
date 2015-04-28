@@ -21,7 +21,7 @@ define('game',[
               this.smallViews[i][j] = new CellView();
             }
           }
-
+          this.listenTo(this.model, "change", this.update);
         },
         render: function () {
             var self = this;
@@ -36,13 +36,19 @@ define('game',[
 
             return this.$el
         },
+        update: function() {
+          this.$('#message').text(this.model.get('message'))
+          this.$('#status').text(this.model.get('status'))
+          this.$('#score').text(this.model.get('score'))
+          this.$('#turn').text(this.model.get('turn'))
+        },
         show: function () {
             this.$el.show()
             this.trigger("show")
             if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
               this.model.startGame();
             } else {
-              alert("You have to authorize first to start a game!");
+              this.model.set("message", "You have to authorize first to start a game!");
             }
         },
         hide: function () {
