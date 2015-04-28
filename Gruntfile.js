@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             },
             sass_tmpl: {
               files: ['templates/sass/**/*.scss'],
-              tasks: ['shell:clear_sass', 'sass', 'concat'],
+              tasks: ['shell:clear_sass', 'sass', 'concat', 'autoprefixer'],
               options: {
                 atBegin: true
               }
@@ -81,6 +81,15 @@ module.exports = function (grunt) {
         concat: {
           dist: {
             src: ['templates/sass/css/**/*.css'],
+            dest: 'templates/sass/all_sass.css'
+          }
+        },
+        autoprefixer: {
+          options: {
+            browsers: ['last 4 versions']
+          },
+          main: {
+            src: 'templates/sass/all_sass.css',
             dest: 'public_html/css/all_sass.css'
           }
         }
@@ -92,5 +101,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');
+    grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.registerTask('default', ['concurrent']);
 };

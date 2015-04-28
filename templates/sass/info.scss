@@ -1,0 +1,26 @@
+$cellsize: 85px;
+$cellpadding: 10px;
+$rowcount: 10;
+$colcount: 10;
+
+.info {
+  margin: 0 auto;
+  width: ($cellsize+$cellpadding*2)*$colcount;
+  display: block;
+
+  &__group {
+    font-size: 12pt;
+
+    &__helper {
+      display: inline-block;
+      margin-right: 10px;
+      width: 100px;
+      font-weight: bold;
+    }
+
+    &__value {
+      display: inline;
+      font-style: italic;
+    }
+  }
+}

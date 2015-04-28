@@ -117,11 +117,9 @@ a {
     font-weight: 700;
     color: white;
     text-decoration: none;
-    padding: 0.8em 1em -webkit-calc(.8em + 3px);
     padding: 0.8em 1em calc(.8em + 3px);
     border-radius: 3px;
-    -webkit-transition: 0.2s;
-            transition: 0.2s;
+    transition: 0.2s;
     max-width: 100px;
     text-align: center;
     margin: auto;
@@ -136,11 +134,9 @@ a {
     font-weight: 700;
     color: white;
     text-decoration: none;
-    padding: 0.8em 1em -webkit-calc(.8em + 3px);
     padding: 0.8em 1em calc(.8em + 3px);
     border-radius: 3px;
-    -webkit-transition: 0.2s;
-            transition: 0.2s;
+    transition: 0.2s;
     max-width: 100px;
     text-align: center;
     margin: auto;
@@ -237,3 +233,5 @@ a {
       color: white; }
       .userpanel__btns__btn:hover {
         background-color: #DB5C87; }
+
+/*# sourceMappingURL=userpanel.css.map */
