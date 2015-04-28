@@ -8,9 +8,9 @@
 .game__row__circle_unselected {
   background: #EDE0C9;
 }
-.game__row__circle__clicked_first {
+.game__row__circle_first {
   background: RGB(78, 93, 105);
 }
-.game__row__circle__clicked_second {
+.game__row__circle_second {
   background: RGB(203, 76, 87);
 }
