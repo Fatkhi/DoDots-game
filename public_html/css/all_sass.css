@@ -1,21 +1,9 @@
-.container {
-  background-color: RGB(187, 173, 160);
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 250px;
-  margin-top: 0;
-  padding-top: 1px;
-  height: 500px;
-  width: 500px; }
-
-/*# sourceMappingURL=container.css.map */
-
 /*** Game ***/
 .game {
   margin: 0 auto;
   width: 1050px;
   height: 950px;
-  background-color: RGB(250, 248, 239); }
+  background-color: #faf8ef; }
   .game__row {
     margin: 10px 10px 0 0;
     height: 85px; }
@@ -33,13 +21,6 @@
         background: RGB(203, 76, 87); }
 
 /*# sourceMappingURL=game.css.map */
-
-#wrap {
-  /*margin-left: 260px;
-  margin-right: 260px;
-  width: 700px;
-  height: 700px;*/
-  background-color: RGB(250, 248, 239); }
 
 body {
   background-color: #FAF8EF; }
@@ -68,7 +49,7 @@ a {
   margin-top: 10%;
   border: 10px solid transparent;
   padding: 10%;
-  background-color: silver; }
+  background-color: #eee; }
 
 .login {
   background-color: #eee;
@@ -83,12 +64,7 @@ a {
 
 /*# sourceMappingURL=global_styles.css.map */
 
-#wrap {
-  /*margin-left: 260px;
-  margin-right: 260px;
-  width: 700px;
-  height: 700px;*/
-  background-color: RGB(250, 248, 239); }
+
 
 /*# sourceMappingURL=global_variables.css.map */
 
@@ -114,7 +90,7 @@ a {
   background-color: inherit;
   text-align: center; }
   .login__form__inputgroup__submitbtn {
-    font-weight: 700;
+    font-weight: bold;
     color: white;
     text-decoration: none;
     padding: 0.8em 1em -webkit-calc(.8em + 3px);
@@ -133,7 +109,7 @@ a {
     .login__form__inputgroup__submitbtn:hover {
       background: #e85f4c; }
   .login__form__inputgroup__backbtn {
-    font-weight: 700;
+    font-weight: bold;
     color: white;
     text-decoration: none;
     padding: 0.8em 1em -webkit-calc(.8em + 3px);
@@ -152,9 +128,9 @@ a {
     .login__form__inputgroup__backbtn:hover {
       background: #e85f4c; }
   .login__form__inputgroup__line__input_valid {
-    box-shadow: 0 0 4px 2px green; }
+    box-shadow: 0 0 4px 2px #40c781; }
   .login__form__inputgroup__line__input_invalid {
-    box-shadow: 0 0 4px 2px red; }
+    box-shadow: 0 0 4px 2px #d44b38; }
 
 /*# sourceMappingURL=login.css.map */
 
@@ -177,6 +153,9 @@ a {
 .menu__btn:hover {
   background: RGB(143, 122, 102);
   color: #EDE0C9; }
+  .menu__btn:hover a {
+    color: #EDE0C9;
+    text-decoration: none; }
 
 /*# sourceMappingURL=menu.css.map */
 
@@ -202,7 +181,7 @@ a {
   background-color: #EDE0C9;
   vertical-align: middle; }
   .userpanel__userinfo {
-    background-color: #8F7A66;
+    background-color: RGB(143, 122, 102);
     display: inline-block;
     height: 100%;
     padding: 2px 10px; }
@@ -211,13 +190,13 @@ a {
       margin: 5px;
       height: 40px;
       padding: 0px 5px;
-      border-right: 1px solid silver;
-      color: #ffffff;
+      border-right: 1px solid #eee;
+      color: #faf8ef;
       vertical-align: middle;
       text-decoration: underline; }
     .userpanel__userinfo__picture {
       display: inline-block;
-      border: 2px solid black;
+      border: 2px solid RGB(78, 93, 105);
       border-radius: 50%;
       height: 50px;
       width: 50px;
@@ -228,12 +207,12 @@ a {
     .userpanel__btns__btn {
       margin: 5px;
       padding: 5px;
-      background-color: #CB4C57;
-      border: 2px solid green;
+      background-color: #d44b38;
+      border: 2px solid #40c781;
       border-radius: 5px;
-      box-shadow: 0 0 3px 1px green;
+      box-shadow: 0 0 3px 1px #40c781;
       cursor: pointer;
       font-weight: bold;
-      color: white; }
+      color: #faf8ef; }
       .userpanel__btns__btn:hover {
-        background-color: #DB5C87; }
+        background-color: #e85f4c; }

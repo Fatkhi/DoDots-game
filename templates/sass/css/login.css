@@ -3,7 +3,7 @@
   background-color: inherit;
   text-align: center; }
   .login__form__inputgroup__submitbtn {
-    font-weight: 700;
+    font-weight: bold;
     color: white;
     text-decoration: none;
     padding: 0.8em 1em calc(.8em + 3px);
@@ -20,7 +20,7 @@
     .login__form__inputgroup__submitbtn:hover {
       background: #e85f4c; }
   .login__form__inputgroup__backbtn {
-    font-weight: 700;
+    font-weight: bold;
     color: white;
     text-decoration: none;
     padding: 0.8em 1em calc(.8em + 3px);
@@ -37,8 +37,8 @@
     .login__form__inputgroup__backbtn:hover {
       background: #e85f4c; }
   .login__form__inputgroup__line__input_valid {
-    box-shadow: 0 0 4px 2px green; }
+    box-shadow: 0 0 4px 2px #40c781; }
   .login__form__inputgroup__line__input_invalid {
-    box-shadow: 0 0 4px 2px red; }
+    box-shadow: 0 0 4px 2px #d44b38; }
 
 /*# sourceMappingURL=login.css.map */

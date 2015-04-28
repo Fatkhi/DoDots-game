@@ -34,11 +34,11 @@ a {
   margin-top: 10%;
   border: 10px solid transparent;
   padding: 10%;
-  background-color: silver;
+  background-color: $color-middle;
 }
 
 .login {
-  background-color: #eee;
+  background-color: $color-middle;
   padding: 40px;
 }
 
@@ -46,7 +46,7 @@ a {
   display: block;
   max-width: 300px;
   margin: 0 auto;
-  background-color: #eee;
+  background-color: $color-middle;
   width: 100%;
 }
 

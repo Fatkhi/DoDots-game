@@ -1,12 +1,14 @@
+@import 'global_variables.scss';
+
 .menu {
   &__btn {
     border-radius: 100px;
-    box-shadow: 0px 0px 5px #666666;
+    box-shadow: 0px 0px 5px $shadow-color;
     font-family: 'Pacifico';
-    color: RGB(78, 93, 105);
+    color: $text-dark;
     font-size: 24pt;
     height: 60px;
-    background: #EDE0C9;
+    background: $color-light;
     text-align: center;
 
     text-decoration: none;
@@ -20,7 +22,11 @@
   }
 
   &__btn:hover {
-    background: RGB(143, 122, 102);
-    color: #EDE0C9;
+    background: $color-dark;
+    color: $color-light;
+    a {
+      color: $color-light;
+      text-decoration: none;
+    }
   }
 }

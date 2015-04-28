@@ -1,5 +1,7 @@
 /*** Game ***/
 
+@import 'global_variables.scss';
+
 $cellsize: 85px;
 $cellpadding: 10px;
 $rowcount: 10;
@@ -9,7 +11,7 @@ $colcount: 10;
   margin: 0 auto;
   width: ($cellsize+$cellpadding*2)*$colcount;
   height: ($cellsize+$cellpadding)*$rowcount;
-  background-color: RGB(250, 248, 239);
+  background-color: $color-lightest;
 
   &__row {
     margin: $cellpadding $cellpadding 0 0;
@@ -23,15 +25,15 @@ $colcount: 10;
       border-radius: 50%;
 
       &_unselected {
-        background: #EDE0C9;
+        background: $color-light;
       }
 
       &_first {
-        background: RGB(78, 93, 105);
+        background: $color-first;
       }
 
       &_second {
-        background: RGB(203, 76, 87);
+        background: $color-second;
       }
     }
   }

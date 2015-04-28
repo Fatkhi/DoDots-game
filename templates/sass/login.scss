@@ -1,5 +1,5 @@
 @mixin standardButton {
-  font-weight: 700;
+  font-weight: bold;
   color: white;
   text-decoration: none;
   padding: .8em 1em calc(.8em + 3px);
@@ -15,6 +15,8 @@
   padding: 10px;
 }
 
+@import 'global_variables.scss';
+
 /*** Login ***/
 
 .login {
@@ -25,30 +27,30 @@
 
       &__submitbtn {
         @include standardButton;
-        background: rgb(64,199,129);
+        background: $color-submit;
 
         &:hover {
-          background: rgb(232,95,76);
+          background: $color-submit-accent;
         }
       }
 
       &__backbtn {
         @include standardButton;
-        background: rgb(212,75,56);
+        background: $color-decline;
 
         &:hover {
-          background: rgb(232,95,76);
+          background: $color-decline-accent;
         }
       }
 
       &__line {
         &__input {
           &_valid {
-            box-shadow: 0 0 4px 2px green;
+            box-shadow: 0 0 4px 2px $color-submit;
           }
 
           &_invalid {
-            box-shadow: 0 0 4px 2px red;
+            box-shadow: 0 0 4px 2px $color-decline;
           }
         }
       }

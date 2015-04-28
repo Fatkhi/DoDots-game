@@ -4,7 +4,7 @@
   background-color: #EDE0C9;
   vertical-align: middle; }
   .userpanel__userinfo {
-    background-color: #8F7A66;
+    background-color: RGB(143, 122, 102);
     display: inline-block;
     height: 100%;
     padding: 2px 10px; }
@@ -13,13 +13,13 @@
       margin: 5px;
       height: 40px;
       padding: 0px 5px;
-      border-right: 1px solid silver;
-      color: #ffffff;
+      border-right: 1px solid #eee;
+      color: #faf8ef;
       vertical-align: middle;
       text-decoration: underline; }
     .userpanel__userinfo__picture {
       display: inline-block;
-      border: 2px solid black;
+      border: 2px solid RGB(78, 93, 105);
       border-radius: 50%;
       height: 50px;
       width: 50px;
@@ -30,14 +30,14 @@
     .userpanel__btns__btn {
       margin: 5px;
       padding: 5px;
-      background-color: #CB4C57;
-      border: 2px solid green;
+      background-color: #d44b38;
+      border: 2px solid #40c781;
       border-radius: 5px;
-      box-shadow: 0 0 3px 1px green;
+      box-shadow: 0 0 3px 1px #40c781;
       cursor: pointer;
       font-weight: bold;
-      color: white; }
+      color: #faf8ef; }
       .userpanel__btns__btn:hover {
-        background-color: #DB5C87; }
+        background-color: #e85f4c; }
 
 /*# sourceMappingURL=userpanel.css.map */
