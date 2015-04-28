@@ -1,5 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
+          <h1>DoDots</h1>
           <div id="content" class="menu">
             <div class="menu__btn">
                 <a href="#game">Start game</a>

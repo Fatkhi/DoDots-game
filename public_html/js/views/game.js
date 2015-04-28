@@ -36,6 +36,11 @@ define('game',[
           })
         },
         render: function () {
+          var height = $(window).innerHeight() - 60;
+          var width = $(window).innerWidth();
+          var margin = (width - height) / 2;
+          var row_height = height / 10;
+          var circle_size = (height - 80) / 10;
             var self = this;
             this.$el.html(this.template());
 
@@ -45,7 +50,21 @@ define('game',[
                 self.smallViews[index][jndex].setModel(self.model.cells[index][jndex]);
               })
             })
+            this.$('div.game').css({
+            "margin-left": margin + "px",
+            "margin-right": margin + "px",
+            "width": height + "px",
+            "height": height + "px",
+        });
 
+          this.$('div.game__row').css({
+            "height": row_height + "px",
+
+        });
+        this.$('div.game__row__circle').css({
+            "height": circle_size + "px",
+            "width": circle_size + "px",
+        });
             return this.$el
         },
         update: function() {

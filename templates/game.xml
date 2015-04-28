@@ -1,6 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
-  <div class="info">
+ <!--  <div class="info">
     <div class="info__group">
       <div class="info__group__helper">Message:</div>
       <div class="info__group__value" id="message"></div>
@@ -17,7 +17,7 @@
       <div class="info__group__helper">Turn:</div>
       <div class="info__group__value" id="turn"></div>
     </div>
-  </div>
+  </div> -->
   <div id="wrap" class="game">
     <fest:for from="1" to="10" index="i">
       <div class="game__row">
