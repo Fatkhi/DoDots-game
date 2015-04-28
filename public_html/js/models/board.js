@@ -36,26 +36,29 @@ define('board', [
           this.cells[i][j].set('playerIndex', 0);
         }
       }
-      this.set("status",  "Waiting...")
       this.set("message", "Waiting for another player")
       this.myIndex = this.currentStep = null;
       self = this;
       this.ws = new WebSocket("ws://localhost:8080/game");
-      this.ws.onopen = function (event) {}
+      this.ws.onopen = function (event) {
+        self.set("status",  "Waiting...")
+      }
       this.ws.onmessage = function (event) {
         self.dispatchMessage($.parseJSON(event.data));
       }
-      this.ws.onclose = function (event) {}
+      this.ws.onclose = function (event) {
+        self.set('Status', 'Connection closed')
+      }
     },
     capture: function(row, col) {
       var sendData = {
         row: row.toString(),
         col: col.toString()
       }
-      if (this.currentStep) {
+      //if (this.currentStep) {
         this.ws.send(JSON.stringify(sendData));
-        this.currentStep = false;
-      }
+      //  this.currentStep = false;
+      //}
     },
     dispatchMessage: function(data) {
       console.log(data)
@@ -94,11 +97,11 @@ define('board', [
           this.set("status", "Game end!")
         }
         this.set("score", data.score[this.myIndex]);
-        if (data.who_moves == this.myIndex) {
-          this.currentStep = true;
+        this.currentStep = (data.who_moves == this.myIndex);
+
+        if (this.currentStep) {
           this.set("turn", "Your turn!")
         } else {
-          this.currentStep = false;
           this.set("turn", "Not your turn!")
         }
       }

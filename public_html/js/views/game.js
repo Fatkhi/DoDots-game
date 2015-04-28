@@ -22,6 +22,18 @@ define('game',[
             }
           }
           this.listenTo(this.model, "change", this.update);
+          $(window).on('load', {self:this}, function(data) {
+            self = data.data.self
+
+            if (self.$el.is(':visible')) {
+              Backbone.Model.definitions.current_user.getInfo()
+              if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
+                self.model.startGame();
+              } else {
+                self.model.set("message", "You have to authorize first to start a game!");
+              }
+            }
+          })
         },
         render: function () {
             var self = this;
@@ -42,13 +54,14 @@ define('game',[
           this.$('#score').text(this.model.get('score'))
           this.$('#turn').text(this.model.get('turn'))
         },
-        show: function () {
-            this.$el.show()
-            this.trigger("show")
+        show: function (data) {
+            self = this
+            self.$el.show()
+            self.trigger("show")
             if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
-              this.model.startGame();
+              self.model.startGame();
             } else {
-              this.model.set("message", "You have to authorize first to start a game!");
+              self.model.set("message", "You have to authorize first to start a game!");
             }
         },
         hide: function () {
