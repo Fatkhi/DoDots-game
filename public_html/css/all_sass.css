@@ -1,27 +1,3 @@
-/*** Game ***/
-.game {
-  margin: 0 auto;
-  width: 1050px;
-  height: 950px;
-  background-color: #faf8ef; }
-  .game__row {
-    margin: 10px 10px 0 0;
-    height: 85px; }
-    .game__row__circle {
-      display: inline-block;
-      margin: 0 0 0 10px;
-      height: 85px;
-      width: 85px;
-      border-radius: 50%; }
-      .game__row__circle_unselected {
-        background: #EDE0C9; }
-      .game__row__circle_first {
-        background: RGB(78, 93, 105); }
-      .game__row__circle_second {
-        background: RGB(203, 76, 87); }
-
-/*# sourceMappingURL=game.css.map */
-
 body {
   background-color: #FAF8EF; }
 
