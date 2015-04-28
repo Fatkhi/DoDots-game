@@ -7,7 +7,8 @@ define('router', [
     'signin',
     'score',
     'mainview',
-    'userpage'
+    'userpage',
+    'userpanel'
 ], function(
     Backbone,
     game,
@@ -17,7 +18,8 @@ define('router', [
     Signin,
     User,
     MainView,
-    Userpage
+    Userpage,
+    userpanel
 ){
 
     var Router = Backbone.Router.extend({
@@ -36,6 +38,8 @@ define('router', [
           this.manager.add_view(this.game);
           this.manager.add_view(this.userpage);
 
+          var upanel = new userpanel();
+          $("#topbar").html(upanel.render());
           $("#page").append(this.login.render());
           $("#page").append(this.signin.render());
           $("#page").append(this.scoreboard.render());
