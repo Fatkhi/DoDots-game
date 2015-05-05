@@ -23,6 +23,9 @@
       </div>
       <div class="userpage__row__content" id="score"></div>
     </div>
+    <div class="userpage__row">
+      <div class="userpage__row__table" id="results"></div>
+    </div>
     <a id="backBtn" href="#main"
          class="login__form__inputgroup__backbtn">
          Back

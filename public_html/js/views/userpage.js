@@ -25,6 +25,24 @@ define('userpage', [
         this.$('#email').text(this.model.get('email'));
         this.$('#score').text(this.model.get('score'));
 
+        this.$('#results').empty();
+        this.$('#results').append(
+         '<div class="userpage__row__table__row userpage__row__table__row_header">\
+            <div class="userpage__row__table__row__col">User1</div>\
+            <div class="userpage__row__table__row__col">Score1</div>\
+            <div class="userpage__row__table__row__col">User2</div>\
+            <div class="userpage__row__table__row__col">Score2</div>\
+          </div>')
+        this.model.get('results').forEach(function(item, i, arr) {
+          this.$('#results').append(
+         '<div class="userpage__row__table__row">\
+            <div class="userpage__row__table__row__col">'+item.user1+'</div>\
+            <div class="userpage__row__table__row__col">'+item.score1+'</div>\
+            <div class="userpage__row__table__row__col">'+item.user2+'</div>\
+            <div class="userpage__row__table__row__col">'+item.score2+'</div>\
+          </div>')
+        }.bind(this));
+
         $('#userpage_admininfo').empty();
         if(this.model.get('name') === 'admin') {
           var self = this;
@@ -46,6 +64,8 @@ define('userpage', [
       show: function () {
         this.$el.show()
         this.trigger("show")
+        console.log('getinfo...')
+        this.model.getInfo();
         this.re_render();
       },
       hide: function () {

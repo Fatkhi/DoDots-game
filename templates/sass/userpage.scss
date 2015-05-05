@@ -19,5 +19,26 @@
     &__content {
       display: inline;
     }
+
+    &__table {
+      display: table;
+      border: 1px solid black;
+      border-collapse: collapse;
+
+      &__row {
+        border: 1px solid black;
+        display: table-row;
+
+        &_header {
+          font-weight: bold;
+        }
+
+        &__col {
+          padding: 2px;
+          border: 1px solid black;
+          display: table-cell;
+        }
+      }
+    }
   }
 }

@@ -39,7 +39,7 @@ define('board', [
       this.set("message", "Waiting for another player")
       this.myIndex = this.currentStep = null;
       self = this;
-      this.ws = new WebSocket("ws://localhost:8080/game");
+      this.ws = new WebSocket("ws://"+location.host+"/game");
       this.ws.onopen = function (event) {
         self.set("status",  "Waiting...")
       }

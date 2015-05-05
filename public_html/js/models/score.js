@@ -61,7 +61,8 @@ define('score', [
       "email" : "",
       "password" : "",
       "is_authenticated" : false,
-      "score": 0
+      "score": 0,
+      "results": []
     },
 
     validate: function(attrs, options){
@@ -125,11 +126,14 @@ define('score', [
         type: "GET"
       }).success(function(data) {
         data = $.parseJSON(data);
+        if (data.results == null)
+          data.results = []
         self.set({
           name: data.username,
           is_authenticated: data.loggedIn,
           email: data.email,
-          score: data.score
+          score: data.score,
+          results: data.results
         })
       });
     }
