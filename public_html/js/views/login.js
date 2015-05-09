@@ -22,12 +22,15 @@ define('login', [
   }
 
   var View = Backbone.View.extend({
+    title: 'login',
       template: tmpl,
       initialize: function () {
         this.listenTo(this.model, "change", this.re_render);
+        //console.log(JSON.stringify(this.model));
       },
       render: function () {
         var self = this;
+        //console.log(this.model);
         this.$el.html(this.template());
         this.$el.find('form').submit(function(event){
           event.preventDefault();

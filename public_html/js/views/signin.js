@@ -38,6 +38,7 @@ function dispatch(self, event, form) {
 }
 
     var View = Backbone.View.extend({
+      title: 'signin',
         template: tmpl,
         initialize: function () {
           this.listenTo(this.model, "register", this.re_render);

@@ -10,6 +10,7 @@ define('game',[
     CellView
 ){
     var View = Backbone.View.extend({
+      title: 'game',
         template: tmpl,
         first: true,
         smallViews: [],
@@ -88,5 +89,5 @@ define('game',[
         }
     });
 
-    return new View();
+    return View;
 });
