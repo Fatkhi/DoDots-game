@@ -9,6 +9,7 @@ define('userpage', [
 ){
 
     var View = Backbone.View.extend({
+      title: 'userpage',
       template: tmpl,
       initialize: function () {
         this.listenTo(this.model, "change", this.re_render);

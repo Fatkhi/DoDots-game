@@ -9,6 +9,7 @@ define('scoreboard', [
 ){
 
     var View = Backbone.View.extend({
+        title: 'scoreboard',
         model: ScoreCollection,
         template: tmpl,
         initialize: function () {
@@ -27,5 +28,5 @@ define('scoreboard', [
         }
 
     });
-    return new View();
+    return View;
 });

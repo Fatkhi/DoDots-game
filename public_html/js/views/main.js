@@ -7,6 +7,7 @@ define('index',[
 ){
 
     var View = Backbone.View.extend({
+        title: 'main',
         template: tmpl,
         render: function () {
             this.$el.html(this.template());
@@ -21,5 +22,5 @@ define('index',[
         }
     });
 
-    return new View();
+    return View;
 });

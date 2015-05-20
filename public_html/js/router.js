@@ -11,41 +11,31 @@ define('router', [
     'userpanel'
 ], function(
     Backbone,
-    game,
+    Game,
     Login,
-    scoreboard,
-    main,
+    Scoreboard,
+    Main,
     Signin,
     User,
     MainView,
     Userpage,
-    userpanel
+    Userpanel
 ){
 
     var Router = Backbone.Router.extend({
         initialize: function() {
-          this.login = new Login({model:Backbone.Model.definitions.current_user})
-          this.signin = new Signin({model:Backbone.Model.definitions.current_user})
-          this.scoreboard = scoreboard;
-          this.main = main;
-          this.game = game;
-          this.userpage = new Userpage({model:Backbone.Model.definitions.current_user});
           this.manager = new MainView();
-          this.manager.add_view(this.login);
-          this.manager.add_view(this.signin);
-          this.manager.add_view(this.scoreboard);
-          this.manager.add_view(this.main);
-          this.manager.add_view(this.game);
-          this.manager.add_view(this.userpage);
+          var manager = this.manager;
 
-          var upanel = new userpanel();
+          manager.add_view(new Login({model:Backbone.Model.definitions.current_user}));
+          manager.add_view(new Signin({model:Backbone.Model.definitions.current_user}));
+          manager.add_view(new Scoreboard());
+          manager.add_view(new Main());
+          manager.add_view(new Game());
+          manager.add_view(new Userpage({model:Backbone.Model.definitions.current_user}));
+
+          var upanel = new Userpanel();
           $("#topbar").html(upanel.render());
-          $("#page").append(this.login.render());
-          $("#page").append(this.signin.render());
-          $("#page").append(this.scoreboard.render());
-          $("#page").append(this.main.render());
-          $("#page").append(this.game.render());
-          $("#page").append(this.userpage.render());
         },
         routes: {
             'scoreboard': 'scoreboardAction',
@@ -59,25 +49,25 @@ define('router', [
             "*path": "defaultAction"
         },
         mainAction: function () {
-          this.main.show();
+          this.manager.get_view('main').show();
         },
         scoreboardAction: function () {
-          this.scoreboard.show();
+          this.manager.get_view('scoreboard').show();
         },
         gameAction: function () {
-          this.game.show()
+          this.manager.get_view('game').show();
         },
         loginAction: function () {
-          this.login.show()
+          this.manager.get_view('login').show();
         },
         signinAction: function () {
-          this.signin.show()
+          this.manager.get_view('signin').show();
         },
         userpageAction: function () {
-          this.userpage.show()
+          this.manager.get_view('userpage').show();
         },
-        defaultAction: function(path) {
-          this.main.show();
+        defaultAction: function() {
+          this.manager.get_view('main').show();
         }
     });
 

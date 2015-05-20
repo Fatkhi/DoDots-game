@@ -50,6 +50,7 @@ define([
 ){
     $(function(){
       //var upanel = new userpanel();
+      //console.log('start')
       new router();
       Backbone.history.start();
       //$("#topbar").html(upanel.render());
