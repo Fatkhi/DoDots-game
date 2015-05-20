@@ -7,4 +7,6 @@
   <webSocketUrl>/game</webSocketUrl>
 
   <staticDir>public_html</staticDir>
+
+  <defaultPort>8081</defaultPort>
 </object>

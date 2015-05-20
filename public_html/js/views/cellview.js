@@ -4,6 +4,15 @@ define('cellview',[
     Backbone
 ){
     var View = Backbone.View.extend({
+      classes: [
+        'game__row__circle_free',
+        'game__row__circle_firstOwned',
+        'game__row__circle_secondOwned',
+        'game__row__circle_capturedByFirst',
+        'game__row__circle_capturedBySecond',
+        'game__row__circle_occupiedByFirst',
+        'game__row__circle_occupiedBySecond'
+      ],
       setModel: function(model) {
         this.model = model;
         this.listenTo(this.model, "change", this.modelChange);
@@ -16,19 +25,10 @@ define('cellview',[
         });
       },
       modelChange: function() {
-        this.$el.removeClass('game__row__circle_unselected');
-        this.$el.removeClass('game__row__circle_first');
-        this.$el.removeClass('game__row__circle_second');
-        switch (this.model.get('playerIndex')) {
-          case 1:
-            this.$el.addClass('game__row__circle_first');
-          break;
-          case 2:
-            this.$el.addClass('game__row__circle_second');
-          break;
-          default:
-            this.$el.addClass('game__row__circle_unselected');
-        }
+        this.classes.forEach(function(cssClass) {
+          this.$el.removeClass(cssClass);
+        }.bind(this))
+        this.$el.addClass(this.classes[this.model.get('playerIndex')]);
       }
     });
 

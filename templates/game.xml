@@ -4,7 +4,7 @@
     <fest:for from="1" to="10" index="i">
       <div class="game__row">
         <fest:for from="1" to="10" index="j">
-          <div class="game__row__circle game__row__circle_unselected"></div>
+          <div class="game__row__circle game__row__circle_free"></div>
         </fest:for>
       </div>
     </fest:for>

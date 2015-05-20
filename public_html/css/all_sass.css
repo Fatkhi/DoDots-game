@@ -1,3 +1,28 @@
+.game__row__circle {
+  display: inline-block;
+  margin: 4px;
+  border-radius: 50%; }
+  .game__row__circle_free {
+    background: #EDE0C9; }
+  .game__row__circle_firstOwned {
+    background: #4e5d69; }
+  .game__row__circle_secondOwned {
+    background: #cb4c57; }
+  .game__row__circle_capturedByFirst {
+    background: #4e5d69;
+    border: 10px solid black;
+    box-shadow: 0 0 0 5px white inset; }
+  .game__row__circle_capturedBySecond {
+    background: #cb4c57;
+    border: 10px solid black;
+    box-shadow: 0 0 0 5px white inset; }
+  .game__row__circle_occupiedByFirst {
+    background: #7e909f; }
+  .game__row__circle_occupiedBySecond {
+    background: #e29ba1; }
+
+/*# sourceMappingURL=game.css.map */
+
 body {
   background-color: #FAF8EF; }
 
