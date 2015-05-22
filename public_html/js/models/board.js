@@ -78,14 +78,17 @@ define('board', [
       } else if (data.status === "Connected") {
         this.set("status",  "Waiting...")
         this.set("message", data.message)
-      } else if (data.status === "OK" || data.status === "Error") {
+      } else if (data.status === "OK" ||
+                 data.status === "Error" ||
+                 data.status === "Game end") {
+        if ('board' in data)
         for (i = 0; i < this.get('rownum'); i++)
           for (j = 0; j < this.get('colnum'); j++)
             this.cells[i][j].set('playerIndex', data.board[i][j]);
 
-        if (data.game_end) {
+        if (data.game_end)
           this.set("status", "Game end!")
-        }
+
         this.set("score", data.score[this.myIndex]);
         this.currentStep = (data.who_moves == this.myIndex);
 
