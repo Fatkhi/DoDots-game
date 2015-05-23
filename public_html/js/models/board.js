@@ -80,7 +80,7 @@ define('board', [
         this.set("message", data.message)
       } else if (data.status === "OK" ||
                  data.status === "Error" ||
-                 data.status === "Game end") {
+                 data.status === "GameEnd") {
         if ('board' in data)
         for (i = 0; i < this.get('rownum'); i++)
           for (j = 0; j < this.get('colnum'); j++)
