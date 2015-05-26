@@ -1,6 +1,11 @@
 body {
   background-color: #FAF8EF; }
 
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Pacifico Regular"), local("Pacifico-Regular"), url(/fonts/pacifico.woff2) format("woff2"), url(/fonts/pacifico.woff) format("woff"); }
 h1 {
   font-family: 'Pacifico', cursive;
   font-size: 84pt;
