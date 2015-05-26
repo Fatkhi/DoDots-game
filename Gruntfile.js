@@ -12,7 +12,7 @@ module.exports = function (grunt) {
             },
             server: {
               files: [
-                      'public_html/js/**/*.js', /* следим за статикой */
+                      'public_html/js/build.min.js', /* следим за статикой */
                       'public_html/css/**/*.css',
                       'public_html/*.html',
                       'public_html/**/*.html'
@@ -24,7 +24,14 @@ module.exports = function (grunt) {
             },
             sass_tmpl: {
               files: ['templates/sass/**/*.scss'],
-              tasks: ['shell:clear_sass', 'sass', 'concat', 'autoprefixer'],
+              tasks: ['shell:clear_sass', 'sass', 'autoprefixer'],
+              options: {
+                atBegin: true
+              }
+            },
+            js: {
+              files: ['public_html/js/**/!(build.min).js'],
+              tasks: ['buildjs'],
               options: {
                 atBegin: true
               }
@@ -70,18 +77,12 @@ module.exports = function (grunt) {
           css: {
             files: [{
               expand: true,
-              style: 'expanded',
+              style: 'compressed',
               cwd: 'templates/sass',
-              src: '**/*.scss',
+              src: 'make.scss',
               dest: 'templates/sass/css',
               ext: '.css'
             }]
-          }
-        },
-        concat: {
-          dist: {
-            src: ['templates/sass/css/**/*.css'],
-            dest: 'templates/sass/all_sass.css'
           }
         },
         autoprefixer: {
@@ -89,18 +90,52 @@ module.exports = function (grunt) {
             browsers: ['last 4 versions']
           },
           main: {
-            src: 'templates/sass/all_sass.css',
+            src: 'templates/sass/css/make.css',
             dest: 'public_html/css/all_sass.css'
           }
-        }
+        },
+        requirejs: {
+          build: {
+            options: {
+              almond: true,
+              baseUrl: "public_html/js",
+              mainConfigFile: "public_html/js/main.js",
+              name: "main",
+              optimize: "none",
+              out: "public_html/js/build/main.js"
+            }
+          }
+        },
+        concat: {
+          build: {
+            separator: ';\n',
+            src: [
+              'public_html/js/lib/almond.js',
+              'public_html/js/build/main.js'
+            ],
+            dest: 'public_html/js/build.js'
+          }
+        },
+        uglify: {
+          build: {
+            files: {
+              'public_html/js/build.min.js':
+                ['public_html/js/build.js']
+            }
+          }
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.registerTask('default', ['concurrent']);
+    grunt.registerTask('buildjs', ['fest', 'requirejs:build',
+                                   'concat:build', 'uglify:build']);
 };
