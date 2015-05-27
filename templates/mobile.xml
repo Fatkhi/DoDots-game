@@ -1,0 +1,17 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+  <div class="mobile" >
+      Sessionid:<br/>
+      <input type="text" id="mobile__sessionid" ></input><br/>
+
+      Chat:<br/>
+      <textarea type="text" id="mobile__chat" rows="7" cols="40"></textarea><br/>
+      <input type="text" id="mobile__message"></input><br/>
+      <input type="button" id="mobile__submit" value="Send"></input><br/>
+
+      Connection data:<br/>
+      <input type="text" id="mobile__token"></input><br/>
+      <input type="button" value="Connect as mobile" id="mobile__connectMobile"></input><br/>
+      <input type="button" value="Connect as desktop" id="mobile__connectDesktop"></input><br/>
+      <a href="#main" class="login__form__inputgroup__backbtn">Back</a>
+  </div>
+</fest:template>

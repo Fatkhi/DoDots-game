@@ -4,7 +4,9 @@ require.config({
     paths: {
         jquery:     "lib/jquery",
         underscore: "lib/underscore",
+        qrcode:     "lib/qrcode",
         backbone:   "lib/backbone",
+        'js-cookie':   "lib/js-cookie",
         mainTmpl:       "tmpl/main",
         loginTmpl:      "tmpl/login",
         gameTmpl:       "tmpl/game",
@@ -12,11 +14,13 @@ require.config({
         signinTmpl:     "tmpl/signin",
         userpanelTmpl:  "tmpl/userpanel",
         userpageTmpl:   "tmpl/userpage",
+        mobileTmpl:     "tmpl/mobile",
         scoreboard: "views/scoreboard",
         signin:     "views/signin",
         login:      "views/login",
         userpanel:  "views/userpanel",
         userpage:   "views/userpage",
+        mobile:   "views/mobile",
         score:      "models/score",
         scores:     "collections/scores",
         mainview:   "views/mainview",
@@ -31,6 +35,9 @@ require.config({
         },
         'underscore': {
             exports: '_'
+        },
+        'js-cookie': {
+          deps: ['jquery']
         }
     }
 });

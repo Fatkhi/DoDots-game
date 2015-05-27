@@ -8,7 +8,8 @@ define('router', [
     'score',
     'mainview',
     'userpage',
-    'userpanel'
+    'userpanel',
+    'mobile'
 ], function(
     Backbone,
     Game,
@@ -19,7 +20,8 @@ define('router', [
     User,
     MainView,
     Userpage,
-    Userpanel
+    Userpanel,
+    Mobile
 ){
 
     var Router = Backbone.Router.extend({
@@ -33,6 +35,7 @@ define('router', [
           manager.add_view(new Main());
           manager.add_view(new Game());
           manager.add_view(new Userpage({model:Backbone.Model.definitions.current_user}));
+          manager.add_view(new Mobile());
 
           var upanel = new Userpanel();
           $("#topbar").html(upanel.render());
@@ -44,6 +47,7 @@ define('router', [
             'main': 'mainAction',
             'signin': 'signinAction',
             'userpage': 'userpageAction',
+            'mobile': 'mobileAction',
             '': 'mainAction',
             "!/" : "mainAction",
             "*path": "defaultAction"
@@ -65,6 +69,9 @@ define('router', [
         },
         userpageAction: function () {
           this.manager.get_view('userpage').show();
+        },
+        mobileAction: function() {
+          this.manager.get_view('mobile').show();
         },
         defaultAction: function() {
           this.manager.get_view('main').show();
