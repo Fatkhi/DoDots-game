@@ -1,0 +1,9 @@
+.scoreboard {
+  marign: 15px auto;
+  &__table {
+    margin: 15px auto;
+    & td {
+      padding: 5px;
+    }
+  }
+}

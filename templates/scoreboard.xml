@@ -1,19 +1,16 @@
-<fest:template xmlns:fest="http://fest.mail.ru"
-          context_name="json">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
 
-  <div  class="btn-group-vertical" >
-      <table class="table">
+  <div class="scoreboard" >
+      <table class="scoreboard__table">
         <thead>
         <tr>
           <th>
             #
           </th>
           <th>
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             <fest:space/>User
           </th>
           <th>
-            <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
             <fest:space/>Score
           </th>
         </tr>
@@ -28,6 +25,6 @@
         </fest:each>
         </tbody>
       </table>
-      <a href="#main" class="btn other_btn">Back</a>
+      <a href="#main" class="login__form__inputgroup__backbtn">Back</a>
   </div>
 </fest:template>

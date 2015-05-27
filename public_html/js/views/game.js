@@ -1,8 +1,7 @@
 define('game',[
     'backbone',
     'gameTmpl',
-    'board',
-    'cellview'
+    'board'
 ], function(
     Backbone,
     tmpl,
@@ -10,19 +9,23 @@ define('game',[
     CellView
 ){
     var View = Backbone.View.extend({
-      title: 'game',
+        title: 'game',
+        classes: [
+          'game__row__circle_free',
+          'game__row__circle_firstOwned',
+          'game__row__circle_secondOwned',
+          'game__row__circle_capturedByFirst',
+          'game__row__circle_capturedBySecond',
+          'game__row__circle_occupiedByFirst',
+          'game__row__circle_occupiedBySecond'
+        ],
         template: tmpl,
         first: true,
         smallViews: [],
         initialize: function() {
           this.model = new Board();
-          for (i = 0; i < this.model.get('rownum'); i++) {
-            this.smallViews[i] = []
-            for (j = 0; j < this.model.get('colnum'); j++) {
-              this.smallViews[i][j] = new CellView();
-            }
-          }
           this.listenTo(this.model, "change", this.update);
+          this.listenTo(this.model, "boardChange", this.updateBoard);
           $(window).on('load', {self:this}, function(data) {
             self = data.data.self
 
@@ -42,31 +45,29 @@ define('game',[
           var margin = (width - height) / 2;
           var row_height = height / 10;
           var circle_size = (height - 80) / 10;
-            var self = this;
-            this.$el.html(this.template());
+          this.$el.html(this.template());
 
-            this.$('.game__row').each(function(index, element) {
-              $(element).find('.game__row__circle').each(function(jndex, circle) {
-                self.smallViews[index][jndex].setEl(circle);
-                self.smallViews[index][jndex].setModel(self.model.cells[index][jndex]);
-              })
-            })
-            this.$('div.game').css({
-              "margin-left": margin + "px",
-              "margin-right": margin + "px",
-              "width": height + "px",
-              "height": height + "px",
-            });
+          this.$('.game__row').each(function(index, element) {
+            this.smallViews[index] = []
+            $(element).find('.game__row__circle').each(function(jndex, circle) {
+              this.smallViews[index][jndex] = circle;
+            }.bind(this))
+          }.bind(this))
+          this.$('div.game').css({
+            "margin-left": margin + "px",
+            "margin-right": margin + "px",
+            "width": height + "px",
+            "height": height + "px",
+          });
 
           this.$('div.game__row').css({
             "height": row_height + "px",
-
-        });
-        this.$('div.game__row__circle').css({
-            "height": circle_size + "px",
-            "width": circle_size + "px",
-        });
-            return this.$el
+          });
+          this.$('div.game__row__circle').css({
+              "height": circle_size + "px",
+              "width": circle_size + "px",
+          });
+          return this.$el
         },
         update: function() {
           this.$('#message').text(this.model.get('message'))
@@ -74,14 +75,23 @@ define('game',[
           this.$('#score').text(this.model.get('score'))
           this.$('#turn').text(this.model.get('turn'))
         },
+        updateBoard: function() {
+          for(irow = 0; irow < this.model.get('rownum'); irow++) {
+            for (icol = 0; icol < this.model.get('colnum'); icol++) {
+              this.classes.forEach(function(cssClass) {
+                this.smallViews[irow][icol].removeClass(cssClass);
+              }.bind(this));
+              this.smallViews[irow][icol].addClass(this.classes[this.model.cells[irow][icol]]);
+            }
+          }
+        },
         show: function (data) {
-            self = this
-            self.$el.show()
-            self.trigger("show")
+            this.$el.show()
+            this.trigger("show")
             if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
-              self.model.startGame();
+              this.model.startGame();
             } else {
-              self.model.set("message", "You have to authorize first to start a game!");
+              this.model.set("message", "You have to authorize first to start a game!");
             }
         },
         hide: function () {

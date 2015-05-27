@@ -28,7 +28,5 @@
       <div class="info__group__value" id="turn"></div>
     </div>
   </div>
-  <div  class="btn-group-vertical" >
-      <a href="#main" class="btn other_btn">Back</a>
-  </div>
+  <a href="#main" class="login__form__inputgroup__backbtn">Back</a>
 </fest:template>

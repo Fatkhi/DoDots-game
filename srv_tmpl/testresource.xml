@@ -1,0 +1,4 @@
+<object class="resources.TestResource">
+  <testString>Hello! This is a test string.</testString>
+  <testInt>42</testInt>
+</object>

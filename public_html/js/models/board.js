@@ -1,6 +1,5 @@
 define('board', [
-  'backbone',
-  'cell'
+  'backbone'
 ], function(
   Backbone,
   Cell
@@ -23,42 +22,34 @@ define('board', [
       for (i = 0; i < this.get('rownum'); i++) {
         this.cells[i] = []
         for (j = 0; j < this.get('colnum'); j++) {
-          this.cells[i][j] = new Cell();
-          this.cells[i][j].set('parent', this);
-          this.cells[i][j].set('i', i);
-          this.cells[i][j].set('j', j);
+          this.cells[i][j] = 0;
         }
       }
     },
     startGame: function() {
-      for (i = 0; i < this.get('rownum'); i++) {
-        for (j = 0; j < this.get('colnum'); j++) {
-          this.cells[i][j].set('playerIndex', 0);
-        }
-      }
       this.set("message", "Waiting for another player")
       this.myIndex = this.currentStep = null;
-      self = this;
+
       this.ws = new WebSocket("ws://"+location.host+"/game");
+
       this.ws.onopen = function (event) {
-        self.set("status",  "Waiting...")
-      }
+        this.set("status",  "Waiting...")
+      }.bind(this)
+
       this.ws.onmessage = function (event) {
-        self.dispatchMessage($.parseJSON(event.data));
-      }
+        this.dispatchMessage($.parseJSON(event.data));
+      }.bind(this)
+
       this.ws.onclose = function (event) {
-        self.set('Status', 'Connection closed')
-      }
+        this.set('Status', 'Connection closed')
+      }.bind(this)
     },
     capture: function(row, col) {
       var sendData = {
         row: row.toString(),
         col: col.toString()
       }
-      //if (this.currentStep) {
-        this.ws.send(JSON.stringify(sendData));
-      //  this.currentStep = false;
-      //}
+      this.ws.send(JSON.stringify(sendData));
     },
     dispatchMessage: function(data) {
       console.log(data)
@@ -82,9 +73,8 @@ define('board', [
                  data.status === "Error" ||
                  data.status === "GameEnd") {
         if ('board' in data)
-        for (i = 0; i < this.get('rownum'); i++)
-          for (j = 0; j < this.get('colnum'); j++)
-            this.cells[i][j].set('playerIndex', data.board[i][j]);
+          this.cells = data.board;
+        this.trigger("boardChanged");
 
         if (data.game_end)
           this.set("status", "Game end!")
@@ -97,6 +87,9 @@ define('board', [
         } else {
           this.set("turn", "Not your turn!")
         }
+      } else {
+        this.set("status", data.status);
+        this.set("message", data.message);
       }
     }
   });

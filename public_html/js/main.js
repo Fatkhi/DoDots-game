@@ -1,5 +1,4 @@
 require.config({
-    //delete urlArgs before deploy
     urlArgs: "_=" + (new Date()).getTime(),
     baseUrl: "js",
     paths: {
@@ -23,9 +22,7 @@ require.config({
         mainview:   "views/mainview",
         index:      "views/main",
         game:       "views/game",
-        cellview:   "views/cellview",
-        board:      "models/board",
-        cell:       "models/cell"
+        board:      "models/board"
     },
     shim: {
         'backbone': {
@@ -41,18 +38,13 @@ require.config({
 define([
     'backbone',
     'router',
-    //'userpanel',
     'jquery'
 ], function(
     Backbone,
     router
-    //userpanel
 ){
     $(function(){
-      //var upanel = new userpanel();
-      //console.log('start')
       new router();
       Backbone.history.start();
-      //$("#topbar").html(upanel.render());
     });
 });

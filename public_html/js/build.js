@@ -13091,28 +13091,9 @@ define("backbone", ["underscore","jquery"], (function (global) {
     };
 }(this)));
 
-define("gameTmpl", [], function() { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div id=\"wrap\" class=\"game\">");var i,__fest_to0,__fest_from0,__fest_iterator0;try{__fest_from0=1;__fest_to0=10;}catch(e){__fest_from0=0;__fest_to0=0;__fest_log_error(e.message);}for(i = __fest_from0;i<=__fest_to0;i++){__fest_buf+=("<div class=\"game__row\">");var j,__fest_to1,__fest_from1,__fest_iterator1;try{__fest_from1=1;__fest_to1=10;}catch(e){__fest_from1=0;__fest_to1=0;__fest_log_error(e.message);}for(j = __fest_from1;j<=__fest_to1;j++){__fest_buf+=("<div class=\"game__row__circle game__row__circle_free\"></div>");}__fest_buf+=("</div>");}__fest_buf+=("</div><div class=\"info\"><div class=\"info__group\"><div class=\"info__group__helper\">Message:</div><div class=\"info__group__value\" id=\"message\"></div></div><div class=\"info__group\"><div class=\"info__group__helper\">Game status:</div><div class=\"info__group__value\" id=\"status\">Authorize first!</div></div><div class=\"info__group\"><div class=\"info__group__helper\">Score:</div><div class=\"info__group__value\" id=\"score\">0</div></div><div class=\"info__group\"><div class=\"info__group__helper\">Turn:</div><div class=\"info__group__value\" id=\"turn\"></div></div></div><div class=\"btn-group-vertical\"><a href=\"#main\" class=\"btn other_btn\">Back</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ;});
-define('cell', [
-  'backbone'
-], function(
-  Backbone
-){
-
-  var Cell = Backbone.Model.extend({
-    defaults: {
-      "playerIndex": 0
-    },
-    chown: function() {
-      this.get('parent').capture(this.get('i'), this.get('j'));
-    }
-  });
-
-  return Cell;
-});
-
+define("gameTmpl", [], function() { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div id=\"wrap\" class=\"game\">");var i,__fest_to0,__fest_from0,__fest_iterator0;try{__fest_from0=1;__fest_to0=10;}catch(e){__fest_from0=0;__fest_to0=0;__fest_log_error(e.message);}for(i = __fest_from0;i<=__fest_to0;i++){__fest_buf+=("<div class=\"game__row\">");var j,__fest_to1,__fest_from1,__fest_iterator1;try{__fest_from1=1;__fest_to1=10;}catch(e){__fest_from1=0;__fest_to1=0;__fest_log_error(e.message);}for(j = __fest_from1;j<=__fest_to1;j++){__fest_buf+=("<div class=\"game__row__circle game__row__circle_free\"></div>");}__fest_buf+=("</div>");}__fest_buf+=("</div><div class=\"info\"><div class=\"info__group\"><div class=\"info__group__helper\">Message:</div><div class=\"info__group__value\" id=\"message\"></div></div><div class=\"info__group\"><div class=\"info__group__helper\">Game status:</div><div class=\"info__group__value\" id=\"status\">Authorize first!</div></div><div class=\"info__group\"><div class=\"info__group__helper\">Score:</div><div class=\"info__group__value\" id=\"score\">0</div></div><div class=\"info__group\"><div class=\"info__group__helper\">Turn:</div><div class=\"info__group__value\" id=\"turn\"></div></div></div><a href=\"#main\" class=\"login__form__inputgroup__backbtn\">Back</a>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ;});
 define('board', [
-  'backbone',
-  'cell'
+  'backbone'
 ], function(
   Backbone,
   Cell
@@ -13135,42 +13116,34 @@ define('board', [
       for (i = 0; i < this.get('rownum'); i++) {
         this.cells[i] = []
         for (j = 0; j < this.get('colnum'); j++) {
-          this.cells[i][j] = new Cell();
-          this.cells[i][j].set('parent', this);
-          this.cells[i][j].set('i', i);
-          this.cells[i][j].set('j', j);
+          this.cells[i][j] = 0;
         }
       }
     },
     startGame: function() {
-      for (i = 0; i < this.get('rownum'); i++) {
-        for (j = 0; j < this.get('colnum'); j++) {
-          this.cells[i][j].set('playerIndex', 0);
-        }
-      }
       this.set("message", "Waiting for another player")
       this.myIndex = this.currentStep = null;
-      self = this;
+
       this.ws = new WebSocket("ws://"+location.host+"/game");
+
       this.ws.onopen = function (event) {
-        self.set("status",  "Waiting...")
-      }
+        this.set("status",  "Waiting...")
+      }.bind(this)
+
       this.ws.onmessage = function (event) {
-        self.dispatchMessage($.parseJSON(event.data));
-      }
+        this.dispatchMessage($.parseJSON(event.data));
+      }.bind(this)
+
       this.ws.onclose = function (event) {
-        self.set('Status', 'Connection closed')
-      }
+        this.set('Status', 'Connection closed')
+      }.bind(this)
     },
     capture: function(row, col) {
       var sendData = {
         row: row.toString(),
         col: col.toString()
       }
-      //if (this.currentStep) {
-        this.ws.send(JSON.stringify(sendData));
-      //  this.currentStep = false;
-      //}
+      this.ws.send(JSON.stringify(sendData));
     },
     dispatchMessage: function(data) {
       console.log(data)
@@ -13194,9 +13167,8 @@ define('board', [
                  data.status === "Error" ||
                  data.status === "GameEnd") {
         if ('board' in data)
-        for (i = 0; i < this.get('rownum'); i++)
-          for (j = 0; j < this.get('colnum'); j++)
-            this.cells[i][j].set('playerIndex', data.board[i][j]);
+          this.cells = data.board;
+        this.trigger("boardChanged");
 
         if (data.game_end)
           this.set("status", "Game end!")
@@ -13209,6 +13181,9 @@ define('board', [
         } else {
           this.set("turn", "Not your turn!")
         }
+      } else {
+        this.set("status", data.status);
+        this.set("message", data.message);
       }
     }
   });
@@ -13216,48 +13191,10 @@ define('board', [
   return Board;
 });
 
-define('cellview',[
-    'backbone'
-], function(
-    Backbone
-){
-    var View = Backbone.View.extend({
-      classes: [
-        'game__row__circle_free',
-        'game__row__circle_firstOwned',
-        'game__row__circle_secondOwned',
-        'game__row__circle_capturedByFirst',
-        'game__row__circle_capturedBySecond',
-        'game__row__circle_occupiedByFirst',
-        'game__row__circle_occupiedBySecond'
-      ],
-      setModel: function(model) {
-        this.model = model;
-        this.listenTo(this.model, "change", this.modelChange);
-      },
-      setEl: function(el) {
-        this.$el = $(el);
-        var self = this;
-        this.$el.click(function(){
-          self.model.chown();
-        });
-      },
-      modelChange: function() {
-        this.classes.forEach(function(cssClass) {
-          this.$el.removeClass(cssClass);
-        }.bind(this))
-        this.$el.addClass(this.classes[this.model.get('playerIndex')]);
-      }
-    });
-
-    return View;
-});
-
 define('game',[
     'backbone',
     'gameTmpl',
-    'board',
-    'cellview'
+    'board'
 ], function(
     Backbone,
     tmpl,
@@ -13265,19 +13202,23 @@ define('game',[
     CellView
 ){
     var View = Backbone.View.extend({
-      title: 'game',
+        title: 'game',
+        classes: [
+          'game__row__circle_free',
+          'game__row__circle_firstOwned',
+          'game__row__circle_secondOwned',
+          'game__row__circle_capturedByFirst',
+          'game__row__circle_capturedBySecond',
+          'game__row__circle_occupiedByFirst',
+          'game__row__circle_occupiedBySecond'
+        ],
         template: tmpl,
         first: true,
         smallViews: [],
         initialize: function() {
           this.model = new Board();
-          for (i = 0; i < this.model.get('rownum'); i++) {
-            this.smallViews[i] = []
-            for (j = 0; j < this.model.get('colnum'); j++) {
-              this.smallViews[i][j] = new CellView();
-            }
-          }
           this.listenTo(this.model, "change", this.update);
+          this.listenTo(this.model, "boardChange", this.updateBoard);
           $(window).on('load', {self:this}, function(data) {
             self = data.data.self
 
@@ -13297,31 +13238,29 @@ define('game',[
           var margin = (width - height) / 2;
           var row_height = height / 10;
           var circle_size = (height - 80) / 10;
-            var self = this;
-            this.$el.html(this.template());
+          this.$el.html(this.template());
 
-            this.$('.game__row').each(function(index, element) {
-              $(element).find('.game__row__circle').each(function(jndex, circle) {
-                self.smallViews[index][jndex].setEl(circle);
-                self.smallViews[index][jndex].setModel(self.model.cells[index][jndex]);
-              })
-            })
-            this.$('div.game').css({
-              "margin-left": margin + "px",
-              "margin-right": margin + "px",
-              "width": height + "px",
-              "height": height + "px",
-            });
+          this.$('.game__row').each(function(index, element) {
+            this.smallViews[index] = []
+            $(element).find('.game__row__circle').each(function(jndex, circle) {
+              this.smallViews[index][jndex] = circle;
+            }.bind(this))
+          }.bind(this))
+          this.$('div.game').css({
+            "margin-left": margin + "px",
+            "margin-right": margin + "px",
+            "width": height + "px",
+            "height": height + "px",
+          });
 
           this.$('div.game__row').css({
             "height": row_height + "px",
-
-        });
-        this.$('div.game__row__circle').css({
-            "height": circle_size + "px",
-            "width": circle_size + "px",
-        });
-            return this.$el
+          });
+          this.$('div.game__row__circle').css({
+              "height": circle_size + "px",
+              "width": circle_size + "px",
+          });
+          return this.$el
         },
         update: function() {
           this.$('#message').text(this.model.get('message'))
@@ -13329,14 +13268,23 @@ define('game',[
           this.$('#score').text(this.model.get('score'))
           this.$('#turn').text(this.model.get('turn'))
         },
+        updateBoard: function() {
+          for(irow = 0; irow < this.model.get('rownum'); irow++) {
+            for (icol = 0; icol < this.model.get('colnum'); icol++) {
+              this.classes.forEach(function(cssClass) {
+                this.smallViews[irow][icol].removeClass(cssClass);
+              }.bind(this));
+              this.smallViews[irow][icol].addClass(this.classes[this.model.cells[irow][icol]]);
+            }
+          }
+        },
         show: function (data) {
-            self = this
-            self.$el.show()
-            self.trigger("show")
+            this.$el.show()
+            this.trigger("show")
             if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
-              self.model.startGame();
+              this.model.startGame();
             } else {
-              self.model.set("message", "You have to authorize first to start a game!");
+              this.model.set("message", "You have to authorize first to start a game!");
             }
         },
         hide: function () {
@@ -13412,7 +13360,8 @@ define('score', [
       "password" : "",
       "is_authenticated" : false,
       "score": 0,
-      "results": []
+      "results": [],
+      "is_admin": false
     },
 
     validate: function(attrs, options){
@@ -13425,7 +13374,7 @@ define('score', [
 
     authenticate: function() {
       var json = this.toJSON()
-      var self = this
+
       return $.ajax({
         url: "/login",
         type: "POST",
@@ -13433,19 +13382,18 @@ define('score', [
       }).success(function(data) {
         data = $.parseJSON(data)
         if(data.status === "OK") {
-          self.set('is_authenticated', true);
+          this.set('is_authenticated', true);
         }
-      });
+      }.bind(this));
     },
 
     logout: function() {
-      var self=this;
       $.ajax({
         url: "/logout",
         type: "POST"
       }).success(function() {
-        self.getInfo();
-      });
+        this.getInfo();
+      }.bind(this));
     },
 
     isValid: function(){
@@ -13470,7 +13418,6 @@ define('score', [
     },
 
     getInfo: function(){
-      var self = this;
       $.ajax({
         url: "/getinfo",
         type: "GET"
@@ -13478,14 +13425,15 @@ define('score', [
         data = $.parseJSON(data);
         if (data.results == null)
           data.results = []
-        self.set({
-          name: data.username,
+        this.set({
+          name: data.name,
           is_authenticated: data.loggedIn,
           email: data.email,
           score: data.score,
-          results: data.results
+          results: data.results,
+          is_admin: data.is_admin
         })
-      });
+      }.bind(this));
     }
   });
   Backbone.Model.definitions = {
@@ -13546,7 +13494,7 @@ define('login', [
   return View;
 });
 
-define("scoreboardTmpl", [], function() { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"btn-group-vertical\"><table class=\"table\"><thead><tr><th>#</th><th><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span> User</th><th><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Score</th></tr></thead><tbody>");var i,v,__fest_iterator0;try{__fest_iterator0=json.players || {};}catch(e){__fest_iterator={};__fest_log_error(e.message);}for(i in __fest_iterator0){v=__fest_iterator0[i];__fest_buf+=("<tr><td>");try{__fest_buf+=(__fest_escapeHTML(parseInt(i)+1))}catch(e){__fest_log_error(e.message + "22");}__fest_buf+=("</td><td>");try{__fest_buf+=(__fest_escapeHTML(v.get('name')))}catch(e){__fest_log_error(e.message + "23");}__fest_buf+=("</td><td>");try{__fest_buf+=(__fest_escapeHTML(v.get('score')))}catch(e){__fest_log_error(e.message + "24");}__fest_buf+=("</td></tr>");}__fest_buf+=("</tbody></table><a href=\"#main\" class=\"btn other_btn\">Back</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ;});
+define("scoreboardTmpl", [], function() { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"scoreboard\"><table class=\"scoreboard__table\"><thead><tr><th>#</th><th> User</th><th> Score</th></tr></thead><tbody>");var i,v,__fest_iterator0;try{__fest_iterator0=json.players || {};}catch(e){__fest_iterator={};__fest_log_error(e.message);}for(i in __fest_iterator0){v=__fest_iterator0[i];__fest_buf+=("<tr><td>");try{__fest_buf+=(__fest_escapeHTML(parseInt(i)+1))}catch(e){__fest_log_error(e.message + "20");}__fest_buf+=("</td><td>");try{__fest_buf+=(__fest_escapeHTML(v.get('name')))}catch(e){__fest_log_error(e.message + "21");}__fest_buf+=("</td><td>");try{__fest_buf+=(__fest_escapeHTML(v.get('score')))}catch(e){__fest_log_error(e.message + "22");}__fest_buf+=("</td></tr>");}__fest_buf+=("</tbody></table><a href=\"#main\" class=\"login__form__inputgroup__backbtn\">Back</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ;});
 define('scores', [
     'backbone',
     'score'
@@ -13780,7 +13728,7 @@ define('mainview', [
     return View;
 });
 
-define("userpageTmpl", [], function() { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"userpage\"><div class=\"userpage__row\"><div class=\"userpage__row__label\"><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>Username</div><div class=\"userpage__row__content\" id=\"name\"></div></div><div class=\"userpage__row\"><div class=\"userpage__row__label\"><span class=\"glyphicon glyphicon-envelope\" aria-hidden=\"true\"></span>Email</div><div class=\"userpage__row__content\" id=\"email\"></div></div><div class=\"userpage__row\"><div class=\"userpage__row__label\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span>Score</div><div class=\"userpage__row__content\" id=\"score\"></div></div><div class=\"userpage__row\"><div class=\"userpage__row__table\" id=\"results\"></div></div><a id=\"backBtn\" href=\"#main\" class=\"login__form__inputgroup__backbtn\">Back</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ;});
+define("userpageTmpl", [], function() { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"userpage\"><div class=\"userpage__row\"><div class=\"userpage__row__label\"><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>Username</div><div class=\"userpage__row__content\" id=\"name\"></div></div><div class=\"userpage__row\"><div class=\"userpage__row__label\"><span class=\"glyphicon glyphicon-envelope\" aria-hidden=\"true\"></span>Email</div><div class=\"userpage__row__content\" id=\"email\"></div></div><div class=\"userpage__row\"><div class=\"userpage__row__label\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span>Score</div><div class=\"userpage__row__content\" id=\"score\"></div></div><div class=\"userpage__row\"><div class=\"userpage__row__table\" id=\"results\"></div></div><a id=\"backBtn\" href=\"#main\" class=\"login__form__inputgroup__backbtn\">Back</a></div><div id=\"userpage_admininfo\"></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ;});
 define('userpage', [
     'backbone',
     'userpageTmpl',
@@ -13796,13 +13744,31 @@ define('userpage', [
       template: tmpl,
       initialize: function () {
         this.listenTo(this.model, "change", this.re_render);
+        this.listenTo(this.model, "change:is_admin", this.draw_admin);
       },
       render: function () {
         var self = this;
         this.$el.html(this.template());
-        this.$el.append('<div id="userpage_admininfo">');
         this.re_render();
         return this.$el;
+      },
+      draw_admin: function() {
+        if(this.model.get('is_admin')) {
+          $.ajax({
+            url: "/getadmin",
+            type: "GET"
+          }).success(function(data) {
+            $('#userpage_admininfo').empty();
+            $('#userpage_admininfo').append('<h2>Admin data</h2>')
+            data = $.parseJSON(data)
+            if(data.status === "OK") {
+              for(i=0; i<data.users.length; i++) {
+                var newRow = '<div>username: '+data.users[i].username+' id: '+data.users[i].userid+'</div>';
+                $('#userpage_admininfo').append(newRow);
+              }
+            }
+          });
+        }
       },
       re_render: function() {
         this.$('#name' ).text(this.model.get('name'));
@@ -13826,29 +13792,11 @@ define('userpage', [
             <div class="userpage__row__table__row__col">'+item.score2+'</div>\
           </div>')
         }.bind(this));
-
-        $('#userpage_admininfo').empty();
-        if(this.model.get('name') === 'admin') {
-          var self = this;
-          $.ajax({
-            url: "/getadmin",
-            type: "GET"
-          }).success(function(data) {
-            $('#userpage_admininfo').append('<h2>Admin data</h2>')
-            data = $.parseJSON(data)
-            if(data.status === "OK") {
-              for(i=0; i<data.users.length; i++) {
-                var newRow = '<div>username: '+data.users[i].username+' id: '+data.users[i].userid+'</div>';
-                $('#userpage_admininfo').append(newRow);
-              }
-            }
-          });
-        }
+        this.draw_admin();
       },
       show: function () {
         this.$el.show()
         this.trigger("show")
-        console.log('getinfo...')
         this.model.getInfo();
         this.re_render();
       },
@@ -13971,7 +13919,6 @@ define('router', [
 });
 
 require.config({
-    //delete urlArgs before deploy
     urlArgs: "_=" + (new Date()).getTime(),
     baseUrl: "js",
     paths: {
@@ -13995,9 +13942,7 @@ require.config({
         mainview:   "views/mainview",
         index:      "views/main",
         game:       "views/game",
-        cellview:   "views/cellview",
-        board:      "models/board",
-        cell:       "models/cell"
+        board:      "models/board"
     },
     shim: {
         'backbone': {
@@ -14013,19 +13958,14 @@ require.config({
 define('main',[
     'backbone',
     'router',
-    //'userpanel',
     'jquery'
 ], function(
     Backbone,
     router
-    //userpanel
 ){
     $(function(){
-      //var upanel = new userpanel();
-      //console.log('start')
       new router();
       Backbone.history.start();
-      //$("#topbar").html(upanel.render());
     });
 });
 

@@ -62,7 +62,8 @@ define('score', [
       "password" : "",
       "is_authenticated" : false,
       "score": 0,
-      "results": []
+      "results": [],
+      "is_admin": false
     },
 
     validate: function(attrs, options){
@@ -75,7 +76,7 @@ define('score', [
 
     authenticate: function() {
       var json = this.toJSON()
-      var self = this
+
       return $.ajax({
         url: "/login",
         type: "POST",
@@ -83,19 +84,18 @@ define('score', [
       }).success(function(data) {
         data = $.parseJSON(data)
         if(data.status === "OK") {
-          self.set('is_authenticated', true);
+          this.set('is_authenticated', true);
         }
-      });
+      }.bind(this));
     },
 
     logout: function() {
-      var self=this;
       $.ajax({
         url: "/logout",
         type: "POST"
       }).success(function() {
-        self.getInfo();
-      });
+        this.getInfo();
+      }.bind(this));
     },
 
     isValid: function(){
@@ -120,7 +120,6 @@ define('score', [
     },
 
     getInfo: function(){
-      var self = this;
       $.ajax({
         url: "/getinfo",
         type: "GET"
@@ -128,14 +127,15 @@ define('score', [
         data = $.parseJSON(data);
         if (data.results == null)
           data.results = []
-        self.set({
-          name: data.username,
+        this.set({
+          name: data.name,
           is_authenticated: data.loggedIn,
           email: data.email,
           score: data.score,
-          results: data.results
+          results: data.results,
+          is_admin: data.is_admin
         })
-      });
+      }.bind(this));
     }
   });
   Backbone.Model.definitions = {

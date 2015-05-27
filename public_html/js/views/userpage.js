@@ -13,13 +13,31 @@ define('userpage', [
       template: tmpl,
       initialize: function () {
         this.listenTo(this.model, "change", this.re_render);
+        this.listenTo(this.model, "change:is_admin", this.draw_admin);
       },
       render: function () {
         var self = this;
         this.$el.html(this.template());
-        this.$el.append('<div id="userpage_admininfo">');
         this.re_render();
         return this.$el;
+      },
+      draw_admin: function() {
+        if(this.model.get('is_admin')) {
+          $.ajax({
+            url: "/getadmin",
+            type: "GET"
+          }).success(function(data) {
+            $('#userpage_admininfo').empty();
+            $('#userpage_admininfo').append('<h2>Admin data</h2>')
+            data = $.parseJSON(data)
+            if(data.status === "OK") {
+              for(i=0; i<data.users.length; i++) {
+                var newRow = '<div>username: '+data.users[i].username+' id: '+data.users[i].userid+'</div>';
+                $('#userpage_admininfo').append(newRow);
+              }
+            }
+          });
+        }
       },
       re_render: function() {
         this.$('#name' ).text(this.model.get('name'));
@@ -43,29 +61,11 @@ define('userpage', [
             <div class="userpage__row__table__row__col">'+item.score2+'</div>\
           </div>')
         }.bind(this));
-
-        $('#userpage_admininfo').empty();
-        if(this.model.get('name') === 'admin') {
-          var self = this;
-          $.ajax({
-            url: "/getadmin",
-            type: "GET"
-          }).success(function(data) {
-            $('#userpage_admininfo').append('<h2>Admin data</h2>')
-            data = $.parseJSON(data)
-            if(data.status === "OK") {
-              for(i=0; i<data.users.length; i++) {
-                var newRow = '<div>username: '+data.users[i].username+' id: '+data.users[i].userid+'</div>';
-                $('#userpage_admininfo').append(newRow);
-              }
-            }
-          });
-        }
+        this.draw_admin();
       },
       show: function () {
         this.$el.show()
         this.trigger("show")
-        console.log('getinfo...')
         this.model.getInfo();
         this.re_render();
       },

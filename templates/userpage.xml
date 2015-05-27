@@ -26,9 +26,10 @@
     <div class="userpage__row">
       <div class="userpage__row__table" id="results"></div>
     </div>
-    <a id="backBtn" href="#main"
-         class="login__form__inputgroup__backbtn">
-         Back
-      </a>
+
+    <a id="backBtn" href="#main" class="login__form__inputgroup__backbtn">
+      Back
+    </a>
   </div>
+  <div id="userpage_admininfo"></div>
 </fest:template>
