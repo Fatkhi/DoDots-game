@@ -12957,11 +12957,8 @@ define('score', [
     },
 
     logout: function() {
-      $.ajax({
-        url: "/logout",
-        type: "POST"
-      }).success(function() {
-        this.getInfo();
+      $.post("/logout", function() {
+        this.fetch();
       }.bind(this));
     },
 
@@ -12973,38 +12970,40 @@ define('score', [
     },
 
     register: function(){
-      var json = this.toJSON()
-      if(this.isValid()) {
-        var data = $.ajax({
-          url: "/signin",
-          type: "POST",
-          data: json
-        });
-        this.getInfo();
-        return data;
-      }
-      return null;
+      if(this.isValid())
+        this.save();
     },
 
     getInfo: function(){
-      $.ajax({
-        url: "/getinfo",
-        type: "GET"
-      }).success(function(data) {
-        data = $.parseJSON(data);
-        if (data.results == null)
-          data.results = []
-        this.set({
-          name: data.name,
-          is_authenticated: data.loggedIn,
-          email: data.email,
-          score: data.score,
-          results: data.results,
-          is_admin: data.is_admin
-        })
-      }.bind(this));
+      this.fetch();
+    },
+
+    sync: function(method, model) {
+      if (method == "create") {
+        var json = this.toJSON()
+        $.post("/signin", json);
+      } else if (method == "read") {
+        $.get("/getinfo", function(data) {
+          data = $.parseJSON(data);
+          if (data.results == null)
+            data.results = []
+          this.set({
+            name: data.name,
+            is_authenticated: data.loggedIn,
+            email: data.email,
+            score: data.score,
+            results: data.results,
+            is_admin: data.is_admin
+          })
+        }.bind(this));
+      } else if (method == "update") {
+
+      } else if (method == "delete") {
+
+      }
     }
   });
+
   Backbone.Model.definitions = {
     current_user: new Player()
   }
