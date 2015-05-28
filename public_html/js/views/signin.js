@@ -74,7 +74,7 @@ function dispatch(self, event, form) {
           localStorage['password'] = self.$('#password').val();
         },
         re_render: function() {
-          var validation = this.model.validate();
+          var validation = this.model.getValidity();
           var form = this.$el.find('form')
           var self = this;
 

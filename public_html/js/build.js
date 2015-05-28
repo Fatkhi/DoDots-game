@@ -13364,12 +13364,29 @@ define('score', [
       "is_admin": false
     },
 
-    validate: function(attrs, options){
-      return {
+    validity: {
+      name: {message: "OK", valid: true},
+      email: {message: "OK", valid: true},
+      password: {message: "OK", valid: true}
+    },
+
+    getValidity: function() {
+      this.validate();
+      return this.validity;
+    },
+
+    validate: function(){
+      this.validity = {
         name: validateName(this.get('name')),
         email: validateEmail(this.get('email')),
         password: validatePassword(this.get('password'))
       }
+      if (!this.validity.name.valid)
+        return this.validity.name.message;
+      if (!this.validity.email.valid)
+        return this.validity.email.message;
+      if (!this.validity.password.valid)
+        return this.validity.password.message;
     },
 
     authenticate: function() {
@@ -13393,13 +13410,6 @@ define('score', [
       }.bind(this));
     },
 
-    isValid: function(){
-      var validity = this.validate();
-      return validity.name.valid  &&
-             validity.email.valid &&
-             validity.password.valid;
-    },
-
     register: function(){
       if(this.isValid())
         this.save();
@@ -13411,7 +13421,7 @@ define('score', [
 
     sync: function(method, model) {
       if (method == "create") {
-        var json = this.toJSON()
+        var json = this.toJSON();
         $.post("/signin", json);
       } else if (method == "read") {
         $.get("/getinfo", function(data) {
@@ -13661,7 +13671,7 @@ function dispatch(self, event, form) {
           localStorage['password'] = self.$('#password').val();
         },
         re_render: function() {
-          var validation = this.model.validate();
+          var validation = this.model.getValidity();
           var form = this.$el.find('form')
           var self = this;
 
