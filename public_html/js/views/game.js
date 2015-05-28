@@ -51,6 +51,11 @@ define('game',[
             this.smallViews[index] = []
             $(element).find('.game__row__circle').each(function(jndex, circle) {
               this.smallViews[index][jndex] = circle;
+              $(this.smallViews[index][jndex]).click(function(event) {
+                row = $(event.target).data("row")
+                col = $(event.target).data("col")
+                this.model.capture(row, col);
+              }.bind(this))
             }.bind(this))
           }.bind(this))
           this.$('div.game').css({
@@ -76,12 +81,13 @@ define('game',[
           this.$('#turn').text(this.model.get('turn'))
         },
         updateBoard: function() {
+          console.log('update')
           for(irow = 0; irow < this.model.get('rownum'); irow++) {
             for (icol = 0; icol < this.model.get('colnum'); icol++) {
               this.classes.forEach(function(cssClass) {
-                this.smallViews[irow][icol].removeClass(cssClass);
+                $(this.smallViews[irow][icol]).removeClass(cssClass);
               }.bind(this));
-              this.smallViews[irow][icol].addClass(this.classes[this.model.cells[irow][icol]]);
+              $(this.smallViews[irow][icol]).addClass(this.classes[this.model.cells[irow][icol]]);
             }
           }
         },

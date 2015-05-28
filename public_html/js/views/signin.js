@@ -65,13 +65,10 @@ function dispatch(self, event, form) {
           this.$('#password').change(this, this.remember);
           return this.$el;
         },
-        remember: function(self) {
-          console.log(self)
-          self = self.data
-          console.log(self)
-          localStorage['name'] = self.$('#name').val();
-          localStorage['email'] = self.$('#email').val();
-          localStorage['password'] = self.$('#password').val();
+        remember: function(event) {
+          localStorage['name'] = event.data.$('#name').val();
+          localStorage['email'] = event.data.$('#email').val();
+          localStorage['password'] = event.data.$('#password').val();
         },
         re_render: function() {
           var validation = this.model.getValidity();

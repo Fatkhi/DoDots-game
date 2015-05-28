@@ -74,7 +74,7 @@ define('board', [
                  data.status === "GameEnd") {
         if ('board' in data)
           this.cells = data.board;
-        this.trigger("boardChanged");
+        this.trigger("boardChange");
 
         if (data.game_end)
           this.set("status", "Game end!")
