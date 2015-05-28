@@ -13780,6 +13780,8 @@ define('userpage', [
               }
             }
           });
+        } else {
+          $('#userpage_admininfo').empty();
         }
       },
       re_render: function() {

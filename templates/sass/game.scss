@@ -21,11 +21,13 @@ $free-color: #EDE0C9;
         background: $first-color;
         border: 10px solid black;
         box-shadow: 0 0 0 5px white inset;
+        box-sizing: border-box;
       }
       &_capturedBySecond {
         background: $second-color;
         border: 10px solid black;
         box-shadow: 0 0 0 5px white inset;
+        box-sizing: border-box;
       }
       &_occupiedByFirst {
         background: lighten($first-color, 20%);

@@ -57,11 +57,13 @@ a {
   .game__row__circle_capturedByFirst {
     background: #4e5d69;
     border: 10px solid black;
-    box-shadow: 0 0 0 5px white inset; }
+    box-shadow: 0 0 0 5px white inset;
+    box-sizing: border-box; }
   .game__row__circle_capturedBySecond {
     background: #cb4c57;
     border: 10px solid black;
-    box-shadow: 0 0 0 5px white inset; }
+    box-shadow: 0 0 0 5px white inset;
+    box-sizing: border-box; }
   .game__row__circle_occupiedByFirst {
     background: #7e909f; }
   .game__row__circle_occupiedBySecond {
