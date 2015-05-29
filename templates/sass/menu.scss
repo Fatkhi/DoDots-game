@@ -4,19 +4,15 @@
     box-shadow: 0px 0px 5px $shadow-color;
     font-family: 'Pacifico';
     color: $text-dark;
-    font-size: 24pt;
+    font-size: 25pt;
     height: 60px;
     background: $color-light;
     text-align: center;
-
     text-decoration: none;
-
     max-width: 50%;
     margin: auto;
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
     display: block;
-    padding: 10px;
   }
 
   &__btn:hover {
