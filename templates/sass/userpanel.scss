@@ -19,16 +19,16 @@
     right: 2%;
     bottom: 0;
   }
-}
-  .userpanel a {
-    font-family: 'Pacifico', cursive;
-    font-size: x-large;
-    color: $shadow-color;
-    text-decoration: none;
+  a {
+      font-family: 'Pacifico', cursive;
+      font-size: x-large;
+      color: $shadow-color;
+      text-decoration: none;
+      cursor: pointer;
 
-    &:hover {
-      color: $bright-text-color;
+      &:hover {
+        color: $bright-text-color;
+      }
     }
-    
-  }
+}
 
