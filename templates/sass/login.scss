@@ -2,7 +2,7 @@
 
 .login {
   &__form {
-    margin: 10%;
+    margin: 5%;
 
     &__inputgroup {
       text-align: center;
@@ -21,7 +21,20 @@
         font-size: 19pt;
         height: 50px;
         cursor: pointer;
+
+        &:hover {
+        color: $bright-text-color;
+        }
       }
+
+      a {
+        margin-top:1%;
+        text-decoration: none;
+        &:hover{
+          color: $bright-text-color;
+        }
+      }
+
       &__line {
         &__input {
           height: 35px;

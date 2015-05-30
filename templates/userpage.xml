@@ -4,32 +4,26 @@
   <div class="userpage">
     <div class="userpage__row">
       <div class="userpage__row__label">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        Username
+        Username:
       </div>
       <div class="userpage__row__content" id="name"></div>
     </div>
     <div class="userpage__row">
       <div class="userpage__row__label">
-        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-        Email
+       Email:
       </div>
       <div class="userpage__row__content" id="email"></div>
     </div>
     <div class="userpage__row">
       <div class="userpage__row__label">
-        <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
-        Score
+        Score:
       </div>
       <div class="userpage__row__content" id="score"></div>
     </div>
     <div class="userpage__row">
       <div class="userpage__row__table" id="results"></div>
     </div>
-
-    <a id="backBtn" href="#main" class="login__form__inputgroup__backbtn">
-      Back
-    </a>
   </div>
+  <a href="#main" class="login__form__inputgroup__submitbtn">Back</a>
   <div id="userpage_admininfo"></div>
 </fest:template>

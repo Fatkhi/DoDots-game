@@ -1,9 +1,12 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="user">
   <div class="userpanel">
+    <div class ="userpanel__main">
+      <a href="#main">DoDots</a>
+    </div>
     <div class="userpanel__userinfo">
-    	<a  href="#userpage">
+      <a  href="#userpage">
           <fest:value>user.get('name')</fest:value>
-        </a>
+      </a>
     </div>
     <div class="userpanel__btns userpanel__btns__btn__logout">
     	<a>Logout</a>

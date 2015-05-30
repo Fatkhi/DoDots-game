@@ -43,7 +43,7 @@ input:-webkit-autofill {
   background-color: #eee;
   width: 100%; }
 
-#loaderwrapper {
+#loadwrapper {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -104,7 +104,7 @@ input:-webkit-autofill {
 
 /*** Login ***/
 .login__form {
-  margin: 10%; }
+  margin: 5%; }
   .login__form__inputgroup {
     text-align: center; }
     .login__form__inputgroup__submitbtn {
@@ -122,6 +122,13 @@ input:-webkit-autofill {
       font-size: 19pt;
       height: 50px;
       cursor: pointer; }
+      .login__form__inputgroup__submitbtn:hover {
+        color: RGB(203, 76, 87); }
+    .login__form__inputgroup a {
+      margin-top: 1%;
+      text-decoration: none; }
+      .login__form__inputgroup a:hover {
+        color: RGB(203, 76, 87); }
     .login__form__inputgroup__line__input {
       height: 35px;
       width: 220px;
@@ -136,7 +143,7 @@ input:-webkit-autofill {
 .menu__btn {
   border-radius: 100px;
   box-shadow: 0px 0px 5px #666666;
-  font-family: 'Pacifico';
+  font-family: "Pacifico";
   color: RGB(78, 93, 105);
   font-size: 25pt;
   height: 60px;
@@ -158,29 +165,31 @@ input:-webkit-autofill {
 /*** Userpage ***/
 .userpage {
   display: block;
-  margin: 0 auto;
+  margin: 5% auto;
   width: 200px; }
-  .userpage__row .glyphicon {
-    margin: 0 0.5em; }
-  .userpage__row__label {
-    display: inline;
-    font-weight: bold;
-    margin-right: 1em; }
-  .userpage__row__content {
-    display: inline; }
-  .userpage__row__table {
-    display: table;
-    border: 1px solid black;
-    border-collapse: collapse; }
-    .userpage__row__table__row {
+  .userpage__row {
+    margin-bottom: 5%; }
+    .userpage__row .glyphicon {
+      margin: 0 0.5em; }
+    .userpage__row__label {
+      display: inline;
+      font-weight: bold;
+      margin-right: 1em; }
+    .userpage__row__content {
+      display: inline; }
+    .userpage__row__table {
+      display: table;
       border: 1px solid black;
-      display: table-row; }
-      .userpage__row__table__row_header {
-        font-weight: bold; }
-      .userpage__row__table__row__col {
-        padding: 2px;
+      border-collapse: collapse; }
+      .userpage__row__table__row {
         border: 1px solid black;
-        display: table-cell; }
+        display: table-row; }
+        .userpage__row__table__row_header {
+          font-weight: bold; }
+        .userpage__row__table__row__col {
+          padding: 2px;
+          border: 1px solid black;
+          display: table-cell; }
 
 /*** Userpanel ***/
 .userpanel {
@@ -192,6 +201,13 @@ input:-webkit-autofill {
     position: absolute;
     padding-left: 1%;
     top: 15%;
+    bottom: 0; }
+  .userpanel__main {
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 0;
+    right: 0;
     bottom: 0; }
   .userpanel__btns {
     position: absolute;

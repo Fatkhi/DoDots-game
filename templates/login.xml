@@ -20,9 +20,9 @@
 
     <div class="login__form__inputgroup">
       <button type="submit" class="login__form__inputgroup__submitbtn">Log in</button>
+      <a href="#main" class="login__form__inputgroup__submitbtn">Back</a>
     </div>
   </form>
 </div>
 
 </fest:template>
-

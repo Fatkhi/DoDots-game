@@ -2,10 +2,11 @@
 
 .userpage {
   display:block;
-  margin: 0 auto;
+  margin: 5% auto;
   width: 200px;
 
   &__row {
+      margin-bottom: 5%;
     .glyphicon {
       margin: 0 0.5em;
     }
