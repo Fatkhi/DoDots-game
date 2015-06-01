@@ -25,6 +25,6 @@
         </fest:each>
         </tbody>
       </table>
-      <a href="#main" class="login__form__inputgroup__backbtn">Back</a>
+      <a href="#main" class="login__form__inputgroup__submitbtn">Back</a>
   </div>
 </fest:template>

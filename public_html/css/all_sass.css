@@ -7,6 +7,9 @@ html, head, body {
 body {
   background-color: #FAF8EF; }
 
+.gamewrap {
+  position: relative; }
+
 @font-face {
   font-family: 'Pacifico';
   font-style: normal;
@@ -88,9 +91,11 @@ input:-webkit-autofill {
     background: #e29ba1; }
 
 .info {
-  margin: 0 auto;
-  width: 1050px;
-  display: block; }
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 10px;
+  margin-left: 10px; }
   .info__group {
     font-size: 12pt; }
     .info__group__helper {

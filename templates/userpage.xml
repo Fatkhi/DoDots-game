@@ -24,6 +24,5 @@
       <div class="userpage__row__table" id="results"></div>
     </div>
   </div>
-  <a href="#main" class="login__form__inputgroup__submitbtn">Back</a>
   <div id="userpage_admininfo"></div>
 </fest:template>

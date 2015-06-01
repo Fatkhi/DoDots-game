@@ -34,7 +34,7 @@ define('game',[
               if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
                 self.model.startGame();
               } else {
-                self.model.set("message", "You have to authorize first to start a game!");
+                self.model.set("message", "You have to authorize");
               }
             }
           })
@@ -97,7 +97,7 @@ define('game',[
             if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
               this.model.startGame();
             } else {
-              this.model.set("message", "You have to authorize first to start a game!");
+              this.model.set("message", "You have to authorize");
             }
         },
         hide: function () {

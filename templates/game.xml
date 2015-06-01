@@ -1,32 +1,33 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
           context_name="json">
+<div class="gamewrap">
   <div id="wrap" class="game">
-    <fest:for from="1" to="10" index="i">
-      <div class="game__row">
-        <fest:for from="1" to="10" index="j">
-          <div class="game__row__circle game__row__circle_free" data-row="{i-1}" data-col="{j-1}"></div>
-        </fest:for>
-      </div>
-    </fest:for>
-
+      <fest:for from="1" to="10" index="i">
+        <div class="game__row">
+          <fest:for from="1" to="10" index="j">
+            <div class="game__row__circle game__row__circle_free" data-row="{i-1}" data-col="{j-1}"></div>
+          </fest:for>
+        </div>
+      </fest:for>
   </div>
   <div class="info">
-    <div class="info__group">
-      <div class="info__group__helper">Message:</div>
-      <div class="info__group__value" id="message"></div>
-    </div>
-    <div class="info__group">
-      <div class="info__group__helper">Game status:</div>
-      <div class="info__group__value" id="status">Authorize first!</div>
-    </div>
-    <div class="info__group">
-      <div class="info__group__helper">Score:</div>
-      <div class="info__group__value" id="score">0</div>
-    </div>
-    <div class="info__group">
-      <div class="info__group__helper">Turn:</div>
-      <div class="info__group__value" id="turn"></div>
-    </div>
+      <div class="info__group">
+        <div class="info__group__helper">Message:</div>
+        <div class="info__group__value" id="message"></div>
+      </div>
+      <div class="info__group">
+        <div class="info__group__helper">Game status:</div>
+        <div class="info__group__value" id="status">Authorize first!</div>
+      </div>
+      <div class="info__group">
+        <div class="info__group__helper">Score:</div>
+        <div class="info__group__value" id="score">0</div>
+      </div>
+      <div class="info__group">
+        <div class="info__group__helper">Turn:</div>
+        <div class="info__group__value" id="turn"></div>
+      </div>
+
   </div>
-  <a href="#main" class="login__form__inputgroup__backbtn">Back</a>
+</div>
 </fest:template>

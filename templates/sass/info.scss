@@ -4,9 +4,11 @@ $rowcount: 10;
 $colcount: 10;
 
 .info {
-  margin: 0 auto;
-  width: ($cellsize+$cellpadding*2)*$colcount;
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 10px;
+  margin-left: 10px;
 
   &__group {
     font-size: 12pt;
