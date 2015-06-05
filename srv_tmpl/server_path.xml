@@ -8,5 +8,5 @@
 
   <staticDir>public_html</staticDir>
 
-  <defaultPort>8080</defaultPort>
+  <defaultPort>9091</defaultPort>
 </object>
