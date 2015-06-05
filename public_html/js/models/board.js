@@ -94,6 +94,17 @@ define('board', [
       this.ws.send(JSON.stringify(sendData));
     },
     dispatchMessage: function(data) {
+        if (data.status === "OK" &&
+            data.message === "You get information about game.") {
+            swal({
+                title: "Reconnection",
+                //text: "Reconnected",
+                type: "success",
+                timer: 3000,
+                showConfirmButton: true
+            });
+            this.updateStatus(data)
+        }
       if (data.status === "Game start") {
           var string = "";
         this.currentStep = data.is_first;
