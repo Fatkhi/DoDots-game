@@ -12731,9 +12731,23 @@ define('board', [
       this.ws.send(JSON.stringify(sendData));
     },
     dispatchMessage: function(data) {
+      if (data.status === "OK" &&
+          data.message === "You get information about game.") {
+        swal({
+          title: "Reconnection",
+          text: "Reconnected",
+          type: "success",
+          timer: 3000,
+          showConfirmButton: true
+        });
+        this.updateStatus(data)
+      }
+
       if (data.status === "Game start") {
-          var string = "";
+        var string = "";
         this.currentStep = data.is_first;
+        this.myIndex = data.is_first ? 0 : 1;
+
         this.set("status", "Game started");
           //swal.close();
         if (this.currentStep) {
@@ -12743,10 +12757,7 @@ define('board', [
           this.set("turn", "Not your turn");
             string = "You second";
         }
-        if (this.currentStep)
-          this.myIndex = 0;
-        else
-          this.myIndex = 1;
+
         this.set("message", data.message);
           swal({
               title: "Let the game start!",
@@ -12761,36 +12772,46 @@ define('board', [
       } else if (data.status === "OK" ||
                  data.status === "Error" ||
                  data.status === "GameEnd") {
-        if ('board' in data)
-          this.cells = data.board;
-        this.trigger("boardChange");
-
-        if (data.game_end){
-            this.inGame = false;
-            this.set("status", "Game end!");
-            swal({
-                title: "The end!",
-                type: "success",
-                showCancelButton: false,
-                confirmButtonColor: "#CB4C57",
-                confirmButtonText: "Best results",
-                closeOnConfirm: true
-            }, function(){
-                window.location.hash = '#scoreboard';
-            });
-        }
-
-        this.set("score", data.score[this.myIndex]);
-        this.currentStep = (data.who_moves == this.myIndex);
-
-        if (this.currentStep) {
-          this.set("turn", "Your turn!")
-        } else {
-          this.set("turn", "Not your turn!")
-        }
+        this.updateStatus(data)
       } else {
         this.set("status", data.status);
         this.set("message", data.message);
+      }
+    },
+
+    updateStatus: function(data) {
+      console.log(this)
+      console.log(data)
+
+      if ('board' in data)
+        this.cells = data.board;
+      this.trigger("boardChange");
+
+      if ('is_first' in data)
+        this.myIndex = data.is_first ? 0 : 1;
+
+      if (data.game_end){
+          this.inGame = false;
+          this.set("status", "Game end!");
+          swal({
+              title: "The end!",
+              type: "success",
+              showCancelButton: false,
+              confirmButtonColor: "#CB4C57",
+              confirmButtonText: "Best results",
+              closeOnConfirm: true
+          }, function(){
+              window.location.hash = '#scoreboard';
+          });
+      }
+
+      this.set("score", data.score[this.myIndex]);
+      this.currentStep = (data.who_moves == this.myIndex);
+
+      if (this.currentStep) {
+        this.set("turn", "Your turn!")
+      } else {
+        this.set("turn", "Not your turn!")
       }
     }
   });
