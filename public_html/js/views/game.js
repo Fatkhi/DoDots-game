@@ -25,18 +25,20 @@ define('game',[
           this.model = new Board();
           this.listenTo(this.model, "change", this.update);
           this.listenTo(this.model, "boardChange", this.updateBoard);
-          $(window).on('load', {self:this}, function(data) {
-            self = data.data.self;
-
-            if (self.$el.is(':visible')) {
-              Backbone.Model.definitions.current_user.getInfo();
-              if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
-                self.model.startGame();
-              } else {
-                self.model.set("message", "You have to authorize");
-              }
-            }
-          })
+            //событие load никогда не сработает
+          //$(window).on('load', {self:this}, function(data) {
+          //  self = data.data.self;
+          //    console.log('here');
+          //
+          //  if (self.$el.is(':visible')) {
+          //    Backbone.Model.definitions.current_user.getInfo();
+          //    if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
+          //      self.model.startGame();
+          //    } else {
+          //      self.model.set("message", "You have to authorize");
+          //    }
+          //  }
+          //})
         },
         render: function () {
           var height = $(window).innerHeight() - 60;
@@ -80,9 +82,11 @@ define('game',[
           this.$('#turn').text(this.model.get('turn'));
         },
         updateBoard: function() {
-          console.log('update');
-          for(irow = 0; irow < this.model.get('rownum'); irow++) {
-            for (icol = 0; icol < this.model.get('colnum'); icol++) {
+          //console.log('update');
+            var rowNum = this.model.get('rownum');
+            var colNum = this.model.get('colnum');
+          for(irow = 0; irow < rowNum; irow++) {
+            for (icol = 0; icol < colNum; icol++) {
               this.classes.forEach(function(cssClass) {
                 $(this.smallViews[irow][icol]).removeClass(cssClass);
               }.bind(this));

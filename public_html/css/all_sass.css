@@ -65,30 +65,33 @@ input:-webkit-autofill {
   margin: auto;
   text-align: center; }
 
-.game__row__circle {
-  display: inline-block;
-  margin: 4px;
-  border-radius: 50%; }
-  .game__row__circle_free {
-    background: #EDE0C9; }
-  .game__row__circle_firstOwned {
-    background: #4e5d69; }
-  .game__row__circle_secondOwned {
-    background: #cb4c57; }
-  .game__row__circle_capturedByFirst {
-    background: #4e5d69;
-    border: 10px solid black;
-    box-shadow: 0 0 0 5px white inset;
-    box-sizing: border-box; }
-  .game__row__circle_capturedBySecond {
-    background: #cb4c57;
-    border: 10px solid black;
-    box-shadow: 0 0 0 5px white inset;
-    box-sizing: border-box; }
-  .game__row__circle_occupiedByFirst {
-    background: #7e909f; }
-  .game__row__circle_occupiedBySecond {
-    background: #e29ba1; }
+.game {
+  border: 3px solid #EDE0C9;
+  border-radius: 8px; }
+  .game__row__circle {
+    display: inline-block;
+    margin: 4px;
+    border-radius: 50%; }
+    .game__row__circle_free {
+      background: #EDE0C9; }
+    .game__row__circle_firstOwned {
+      background: #4e5d69; }
+    .game__row__circle_secondOwned {
+      background: #cb4c57; }
+    .game__row__circle_capturedByFirst {
+      background: #4e5d69;
+      border: 10px solid black;
+      box-shadow: 0 0 0 5px white inset;
+      box-sizing: border-box; }
+    .game__row__circle_capturedBySecond {
+      background: #cb4c57;
+      border: 10px solid black;
+      box-shadow: 0 0 0 5px white inset;
+      box-sizing: border-box; }
+    .game__row__circle_occupiedByFirst {
+      background: #7e909f; }
+    .game__row__circle_occupiedBySecond {
+      background: #e29ba1; }
 
 .info {
   position: absolute;
@@ -101,15 +104,14 @@ input:-webkit-autofill {
   background-color: #EDE0C9;
   border: 3px solid #666666; }
   .info__group {
-    font-size: 12pt; }
+    font-size: 10pt; }
     .info__group__helper {
       display: inline-block;
-      margin-right: 10px;
-      width: 100px;
+      margin-right: 5px;
+      width: 50px;
       font-weight: bold; }
     .info__group__value {
-      display: inline;
-      font-style: italic; }
+      display: inline; }
 
 .info_group__wrapper {
   font-family: 'Pacifico';
@@ -211,7 +213,9 @@ input:-webkit-autofill {
   position: relative;
   height: 60px;
   background-color: #EDE0C9;
-  vertical-align: middle; }
+  vertical-align: middle;
+  border-bottom: 1px solid #666666;
+  border-radius: 2px; }
   .userpanel__userinfo {
     position: absolute;
     padding-left: 1%;
@@ -241,6 +245,8 @@ input:-webkit-autofill {
 .scoreboard {
   marign: 15px auto; }
   .scoreboard__table {
-    margin: 15px auto; }
+    margin: 15px auto;
+    border: 3px solid #EDE0C9;
+    border-radius: 8px; }
     .scoreboard__table td {
       padding: 5px; }

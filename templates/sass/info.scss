@@ -15,18 +15,17 @@ $colcount: 10;
   border: 3px solid #666666;
 
   &__group {
-    font-size: 12pt;
+    font-size: 10pt;
 
     &__helper {
       display: inline-block;
-      margin-right: 10px;
-      width: 100px;
+      margin-right: 5px;
+      width: 50px;
       font-weight: bold;
     }
 
     &__value {
       display: inline;
-      font-style: italic;
     }
   }
 }

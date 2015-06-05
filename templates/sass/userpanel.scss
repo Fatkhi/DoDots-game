@@ -5,6 +5,8 @@
   height: 60px;
   background-color: $color-light;
   vertical-align: middle;
+  border-bottom: 1px solid #666666;
+  border-radius: 2px;
 
   &__userinfo {
     position: absolute;

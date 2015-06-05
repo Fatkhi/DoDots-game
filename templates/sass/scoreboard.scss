@@ -2,6 +2,8 @@
   marign: 15px auto;
   &__table {
     margin: 15px auto;
+    border: 3px solid #EDE0C9;
+    border-radius: 8px;
     & td {
       padding: 5px;
     }

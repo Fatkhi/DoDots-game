@@ -3,6 +3,8 @@ $second-color: rgb(203, 76, 87);
 $free-color: #EDE0C9;
 
 .game {
+  border: 3px solid #EDE0C9;
+  border-radius: 8px;
   &__row {
     &__circle {
       display: inline-block;

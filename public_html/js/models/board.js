@@ -36,11 +36,11 @@ define('board', [
 
       this.ws.onopen = function (event) {
         this.set("status",  "Waiting...")
-      }.bind(this)
+      }.bind(this);
 
       this.ws.onmessage = function (event) {
         this.dispatchMessage($.parseJSON(event.data));
-      }.bind(this)
+      }.bind(this);
 
       this.ws.onclose = function (event) {
         this.set('Status', 'Connection closed')
