@@ -14839,21 +14839,20 @@ define('scores', [
       model: Player,
       comparator: function(player) {
         return -player.get('score');
+      },
+      fetchData: function() {
+        $.get("/best", function(data) {
+          data = $.parseJSON(data);
+          this.reset();
+          for(i = 0; i < data.users.length; i++) {
+            this.add(new Player({name:data.users[i].name, score:data.users[i].score}))
+          }
+          this.trigger("change")
+        }.bind(this));
       }
     });
 
-    return new ScoreCollection([
-      new Player({name:'vasya',score:10}),
-      new Player({name:'petya',score:5}),
-      new Player({name:'petya2'}),
-      new Player({name:'petya3',score:105}),
-      new Player({name:'petya4',score:83}),
-      new Player({name:'petya5',score:21}),
-      new Player({name:'petya6',score:13}),
-      new Player({name:'petya7',score:55}),
-      new Player({name:'petya8',score:60}),
-      new Player({name:'danya',score:15})
-    ]);
+    return new ScoreCollection();
 });
 
 define('scoreboard', [
@@ -14872,12 +14871,16 @@ define('scoreboard', [
         template: tmpl,
         initialize: function () {
           this.listenTo(this.model, "change", this.render);
+          this.model.fetchData();
         },
         render: function () {
+          console.log(this.model)
           this.$el.html(this.template({players:this.model.models}));
           return this.$el;
         },
         show: function () {
+            this.model.fetchData();
+            this.$el.html(this.template({players:this.model.models}));
             this.$el.show();
             this.trigger("show")
         },
