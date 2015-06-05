@@ -6,6 +6,7 @@ define('board', [
 ){
 
   var Board = Backbone.Model.extend({
+      inGame: false,
     cells: [],
     ws: null,
     currentStep: null,
@@ -29,7 +30,19 @@ define('board', [
       }
     },
     startGame: function() {
-      this.set("message", "Waiting for another player")
+        this.inGame = true;
+      this.set("message", "Waiting for another player");
+        //badcode
+        swal({
+            title: "Waiting for another player...",
+            type: "info",
+            showConfirmButton: true,
+            confirmButtonColor: "#CB4C57",
+            confirmButtonText: "Return",
+            showCancelButton: false
+        }, function(){
+            window.location.hash = '#main';
+        });
       this.myIndex = this.currentStep = null;
 
       this.ws = new WebSocket("ws://"+location.host+"/game");
@@ -50,24 +63,34 @@ define('board', [
       var sendData = {
         row: row.toString(),
         col: col.toString()
-      }
+      };
       this.ws.send(JSON.stringify(sendData));
     },
     dispatchMessage: function(data) {
-      console.log(data)
       if (data.status === "Game start") {
+          var string = "";
         this.currentStep = data.is_first;
         this.set("status", "Game started");
+          //swal.close();
         if (this.currentStep) {
           this.set("turn", "Your turn");
+            string = "You first";
         } else {
           this.set("turn", "Not your turn");
+            string = "You second";
         }
         if (this.currentStep)
           this.myIndex = 0;
         else
           this.myIndex = 1;
         this.set("message", data.message);
+          swal({
+              title: "Let the game start!",
+              text: string,
+              type: "success",
+              timer: 3000,
+              showConfirmButton: true
+          });
       } else if (data.status === "Connected") {
         this.set("status",  "Waiting...")
         this.set("message", data.message)
@@ -78,8 +101,20 @@ define('board', [
           this.cells = data.board;
         this.trigger("boardChange");
 
-        if (data.game_end)
-          this.set("status", "Game end!")
+        if (data.game_end){
+            this.inGame = false;
+            this.set("status", "Game end!");
+            swal({
+                title: "The end!",
+                type: "success",
+                showCancelButton: false,
+                confirmButtonColor: "#CB4C57",
+                confirmButtonText: "Best results",
+                closeOnConfirm: true
+            }, function(){
+                window.location.hash = '#scoreboard';
+            });
+        }
 
         this.set("score", data.score[this.myIndex]);
         this.currentStep = (data.who_moves == this.myIndex);

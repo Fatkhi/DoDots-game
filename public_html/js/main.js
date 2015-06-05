@@ -6,6 +6,7 @@ require.config({
         underscore: "lib/underscore",
         qrcode:     "lib/qrcode",
         backbone:   "lib/backbone",
+        sweetalert: "lib/sweetalert-dev",
         'js-cookie':   "lib/js-cookie",
         mainTmpl:       "tmpl/main",
         loginTmpl:      "tmpl/login",

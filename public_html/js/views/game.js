@@ -1,7 +1,8 @@
 define('game',[
     'backbone',
     'gameTmpl',
-    'board'
+    'board',
+    'sweetalert'
 ], function(
     Backbone,
     tmpl,
@@ -76,10 +77,10 @@ define('game',[
           return this.$el
         },
         update: function() {
-          this.$('#message').text(this.model.get('message'));
-          this.$('#status').text(this.model.get('status'));
-          this.$('#score').text(this.model.get('score'));
-          this.$('#turn').text(this.model.get('turn'));
+            //this.$('#message').text(this.model.get('message'));
+            this.$('#status').text(this.model.get('status'));
+            this.$('#score').text(this.model.get('score'));
+            this.$('#turn').text(this.model.get('turn'));
         },
         updateBoard: function() {
           //console.log('update');
@@ -97,13 +98,27 @@ define('game',[
         show: function (data) {
             this.$el.show();
             this.trigger("show");
-            if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
-              this.model.startGame();
-            } else {
-              this.model.set("message", "You have to authorize");
+            if (Backbone.Model.definitions.current_user.get('is_authenticated') && !this.model.inGame) {
+                //this.model.inGame = true;
+                this.model.startGame();
+            }
+            else if(!Backbone.Model.definitions.current_user.get('is_authenticated')){
+                this.model.set("message", "You have to authorize");
+                swal({
+                    title: "Error!",
+                    text: "You have to authorize!",
+                    type: "error",
+                    showCancelButton: false,
+                    confirmButtonColor: "#CB4C57",
+                    confirmButtonText: "Back",
+                    closeOnConfirm: true
+                }, function(){
+                    window.location.hash = '#main';
+                });
             }
         },
         hide: function () {
+            //this.inGame = false;
             this.$el.hide()
         }
     });

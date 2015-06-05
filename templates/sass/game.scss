@@ -20,22 +20,22 @@ $free-color: #EDE0C9;
         background: $second-color;
       }
       &_capturedByFirst {
-        background: $first-color;
-        border: 10px solid black;
-        box-shadow: 0 0 0 5px white inset;
+        background: $second-color;
+        border: 7px solid #666666;
+        box-shadow: 0 0 0 5px #FAF8EF inset;
         box-sizing: border-box;
       }
       &_capturedBySecond {
-        background: $second-color;
-        border: 10px solid black;
-        box-shadow: 0 0 0 5px white inset;
+        background: $first-color;
+        border: 7px solid #666666;
+        box-shadow: 0 0 0 5px #FAF8EF inset;
         box-sizing: border-box;
       }
       &_occupiedByFirst {
-        background: lighten($first-color, 20%);
+        background: lighten($first-color, 10%);
       }
       &_occupiedBySecond {
-        background: lighten($second-color, 20%);
+        background: lighten($second-color, 10%);
       }
     }
   }

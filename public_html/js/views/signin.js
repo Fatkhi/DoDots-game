@@ -42,6 +42,7 @@ function dispatch(self, event, form) {
         template: tmpl,
         initialize: function () {
           this.listenTo(this.model, "register", this.re_render);
+            localStorage.clear();
         },
         render: function () {
           var self = this;

@@ -12,10 +12,10 @@
   </div>
   <div class="info">
       <div class="info_group__wrapper">
-          <div class="info__group">
-              <div class="info__group__helper">Message:</div>
-              <div class="info__group__value" id="message"></div>
-          </div>
+          <!--<div class="info__group">-->
+              <!--<div class="info__group__helper">Message:</div>-->
+              <!--<div class="info__group__value" id="message"></div>-->
+          <!--</div>-->
           <div class="info__group">
               <div class="info__group__helper">Status:</div>
               <div class="info__group__value" id="status">Authorize first!</div>
