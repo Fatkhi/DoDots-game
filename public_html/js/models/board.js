@@ -56,7 +56,8 @@ define('board', [
       }.bind(this);
 
       this.ws.onclose = function (event) {
-        this.set('Status', 'Connection closed')
+        this.set('Status', 'Connection closed');
+          this.inGame = false;
       }.bind(this)
     },
     capture: function(row, col) {
