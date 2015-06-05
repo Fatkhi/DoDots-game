@@ -9,6 +9,10 @@ $colcount: 10;
   left: 0;
   margin-top: 10px;
   margin-left: 10px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: #EDE0C9;
+  border: 3px solid #666666;
 
   &__group {
     font-size: 12pt;
@@ -25,4 +29,12 @@ $colcount: 10;
       font-style: italic;
     }
   }
+}
+
+.info_group__wrapper{
+  font-family: 'Pacifico';
+  background-color: #FAF8EF;
+  border-radius: 8px;
+  padding: 5px;
+
 }

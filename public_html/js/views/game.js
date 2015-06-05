@@ -5,8 +5,7 @@ define('game',[
 ], function(
     Backbone,
     tmpl,
-    Board,
-    CellView
+    Board
 ){
     var View = Backbone.View.extend({
         title: 'game',
@@ -27,10 +26,10 @@ define('game',[
           this.listenTo(this.model, "change", this.update);
           this.listenTo(this.model, "boardChange", this.updateBoard);
           $(window).on('load', {self:this}, function(data) {
-            self = data.data.self
+            self = data.data.self;
 
             if (self.$el.is(':visible')) {
-              Backbone.Model.definitions.current_user.getInfo()
+              Backbone.Model.definitions.current_user.getInfo();
               if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
                 self.model.startGame();
               } else {
@@ -48,40 +47,40 @@ define('game',[
           this.$el.html(this.template());
 
           this.$('.game__row').each(function(index, element) {
-            this.smallViews[index] = []
+            this.smallViews[index] = [];
             $(element).find('.game__row__circle').each(function(jndex, circle) {
               this.smallViews[index][jndex] = circle;
               $(this.smallViews[index][jndex]).click(function(event) {
-                row = $(event.target).data("row")
-                col = $(event.target).data("col")
+                row = $(event.target).data("row");
+                col = $(event.target).data("col");
                 this.model.capture(row, col);
               }.bind(this))
             }.bind(this))
-          }.bind(this))
+          }.bind(this));
           this.$('div.game').css({
             "margin-left": margin + "px",
             "margin-right": margin + "px",
             "width": height + "px",
-            "height": height + "px",
+            "height": height + "px"
           });
 
           this.$('div.game__row').css({
-            "height": row_height + "px",
+            "height": row_height + "px"
           });
           this.$('div.game__row__circle').css({
               "height": circle_size + "px",
-              "width": circle_size + "px",
+              "width": circle_size + "px"
           });
           return this.$el
         },
         update: function() {
-          this.$('#message').text(this.model.get('message'))
-          this.$('#status').text(this.model.get('status'))
-          this.$('#score').text(this.model.get('score'))
-          this.$('#turn').text(this.model.get('turn'))
+          this.$('#message').text(this.model.get('message'));
+          this.$('#status').text(this.model.get('status'));
+          this.$('#score').text(this.model.get('score'));
+          this.$('#turn').text(this.model.get('turn'));
         },
         updateBoard: function() {
-          console.log('update')
+          console.log('update');
           for(irow = 0; irow < this.model.get('rownum'); irow++) {
             for (icol = 0; icol < this.model.get('colnum'); icol++) {
               this.classes.forEach(function(cssClass) {
@@ -92,8 +91,8 @@ define('game',[
           }
         },
         show: function (data) {
-            this.$el.show()
-            this.trigger("show")
+            this.$el.show();
+            this.trigger("show");
             if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
               this.model.startGame();
             } else {

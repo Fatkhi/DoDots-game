@@ -19,9 +19,11 @@ define('board', [
       "message": ""
     },
     initialize: function() {
-      for (i = 0; i < this.get('rownum'); i++) {
+        var rowNum = this.get('rownum');
+        var colNum = this.get('colnum');
+      for (i = 0; i < rowNum; i++) {
         this.cells[i] = []
-        for (j = 0; j < this.get('colnum'); j++) {
+        for (j = 0; j < colNum; j++) {
           this.cells[i][j] = 0;
         }
       }
