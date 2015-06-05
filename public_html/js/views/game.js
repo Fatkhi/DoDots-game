@@ -117,6 +117,18 @@ define('game',[
             }
         },
         hide: function () {
+            //this.model.set('ragequit', false);
+            //if(this.model.ragequit == null){
+            //    this.model.ragequit = true;
+            //}
+            //else this.model.ragequit = false;
+            //this.model.ragequit = (this.model.ragequit == null);
+            //this.model.set('ragequit', false);
+            this.model.ragequit = false;
+            if(this.model.ws != null) {
+                console.log('here');
+                this.model.ws.close();
+            }
             this.$el.hide()
         }
     });

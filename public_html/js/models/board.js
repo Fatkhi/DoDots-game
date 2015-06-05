@@ -10,6 +10,7 @@ define('board', [
     ws: null,
     currentStep: null,
     myIndex: null,
+      ragequit: null,
     defaults: {
       "rownum": 10,
       "colnum": 10,
@@ -18,24 +19,37 @@ define('board', [
       "status": "Authorize first!",
       "message": ""
     },
-    initialize: function() {
+    //initialize: function() {
+    //    var rowNum = this.get('rownum');
+    //    var colNum = this.get('colnum');
+    //  for (i = 0; i < rowNum; i++) {
+    //    this.cells[i] = [];
+    //    for (j = 0; j < colNum; j++) {
+    //      this.cells[i][j] = 0;
+    //    }
+    //  }
+    //},
+    startGame: function() {
+        this.ragequit = true;
+        //this.set('ragequit', 'true');
+        console.log(this.ragequit);
         var rowNum = this.get('rownum');
         var colNum = this.get('colnum');
-      for (i = 0; i < rowNum; i++) {
-        this.cells[i] = [];
-        for (j = 0; j < colNum; j++) {
-          this.cells[i][j] = 0;
+        for (i = 0; i < rowNum; i++) {
+            this.cells[i] = [];
+            for (j = 0; j < colNum; j++) {
+                this.cells[i][j] = 0;
+            }
         }
-      }
-    },
-    startGame: function() {
+        this.trigger("boardChange");
+
       this.set("message", "Waiting for another player");
         swal({
             title: "Waiting for another player...",
             type: "info",
             showConfirmButton: true,
             confirmButtonColor: "#CB4C57",
-            confirmButtonText: "Return",
+            confirmButtonText: "Return to main",
             showCancelButton: false
         }, function(){
             window.location.hash = '#main';
@@ -53,7 +67,23 @@ define('board', [
       }.bind(this);
 
       this.ws.onclose = function (event) {
-        this.set('Status', 'Connection closed');
+          console.log(this.ragequit);
+          if(this.ragequit == true){
+              this.set('status', 'Connection closed');
+              swal({
+                  title: "Haha RAGEQUIT",
+                  type: "warning",
+                  showCancelButton: false,
+                  confirmButtonColor: "#CB4C57",
+                  confirmButtonText: "Back to main",
+                  closeOnConfirm: true
+              }, function(){
+                  window.location.hash = '#main';
+              });
+              this.set('ragequit', false);
+          }
+          this.ws = null;
+
       }.bind(this)
     },
     capture: function(row, col) {
@@ -90,7 +120,7 @@ define('board', [
           });
       } else if (data.status === "Connected") {
         this.set("status",  "Waiting...");
-        this.set("message", data.message)
+        //this.set("message", data.message)
       } else if (data.status === "OK" ||
                  data.status === "Error" ||
                  data.status === "GameEnd") {
@@ -120,9 +150,20 @@ define('board', [
         } else {
           this.set("turn", "Not your turn!")
         }
-      } else {
-        this.set("status", data.status);
-        this.set("message", data.message);
+      }
+      else if(data.status === "Closed") {
+          this.set("status", data.status);
+          swal({
+              title: "Haha RAGEQUIT",
+              type: "warning",
+              showCancelButton: false,
+              confirmButtonColor: "#CB4C57",
+              confirmButtonText: "Back to main",
+              closeOnConfirm: true
+          }, function(){
+              window.location.hash = '#main';
+          });
+        //this.set("message", data.message);
       }
     }
   });
