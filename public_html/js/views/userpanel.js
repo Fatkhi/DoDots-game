@@ -9,7 +9,7 @@ define('userpanel', [
   var View = Backbone.View.extend({
       template: tmpl,
       initialize: function () {
-        this.model = Backbone.Model.definitions.current_user
+        this.model = Backbone.Model.definitions.current_user;
         this.model.getInfo();
         this.listenTo(this.model, "change", this.render);
       },
@@ -18,6 +18,7 @@ define('userpanel', [
         this.$el.html(this.template(self.model));
         this.$el.find('.userpanel__btns__btn__logout').on('click', function() {
           self.model.logout();
+            window.location.hash = "#main";
         });
         return this.$el;
       },

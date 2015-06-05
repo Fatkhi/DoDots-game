@@ -12669,7 +12669,6 @@ define('board', [
 ){
 
   var Board = Backbone.Model.extend({
-      inGame: false,
     cells: [],
     ws: null,
     currentStep: null,
@@ -12686,16 +12685,14 @@ define('board', [
         var rowNum = this.get('rownum');
         var colNum = this.get('colnum');
       for (i = 0; i < rowNum; i++) {
-        this.cells[i] = []
+        this.cells[i] = [];
         for (j = 0; j < colNum; j++) {
           this.cells[i][j] = 0;
         }
       }
     },
     startGame: function() {
-        this.inGame = true;
       this.set("message", "Waiting for another player");
-        //badcode
         swal({
             title: "Waiting for another player...",
             type: "info",
@@ -12719,7 +12716,7 @@ define('board', [
       }.bind(this);
 
       this.ws.onclose = function (event) {
-        this.set('Status', 'Connection closed')
+        this.set('Status', 'Connection closed');
       }.bind(this)
     },
     capture: function(row, col) {
@@ -12755,7 +12752,7 @@ define('board', [
               showConfirmButton: true
           });
       } else if (data.status === "Connected") {
-        this.set("status",  "Waiting...")
+        this.set("status",  "Waiting...");
         this.set("message", data.message)
       } else if (data.status === "OK" ||
                  data.status === "Error" ||
@@ -12765,7 +12762,6 @@ define('board', [
         this.trigger("boardChange");
 
         if (data.game_end){
-            this.inGame = false;
             this.set("status", "Game end!");
             swal({
                 title: "The end!",
@@ -14137,8 +14133,7 @@ define('game',[
         show: function (data) {
             this.$el.show();
             this.trigger("show");
-            if (Backbone.Model.definitions.current_user.get('is_authenticated') && !this.model.inGame) {
-                //this.model.inGame = true;
+            if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
                 this.model.startGame();
             }
             else if(!Backbone.Model.definitions.current_user.get('is_authenticated')){
@@ -14157,7 +14152,6 @@ define('game',[
             }
         },
         hide: function () {
-            //this.inGame = false;
             this.$el.hide()
         }
     });
@@ -14173,18 +14167,18 @@ define('score', [
 ){
 
   function validateName(name) {
-    var reg1 = /^[a-zA-Z0-9]*$/
-    var reg2 = /^[a-zA-Z0-9][a-zA-Z0-9]*$/
+    var reg1 = /^[a-zA-Z0-9]*$/;
+    var reg2 = /^[a-zA-Z0-9][a-zA-Z0-9]*$/;
     if (!reg1.test(name))
       return {
         message: "Username can contain only letters or digits",
         valid:   false
-      }
+      };
     if (!reg2.test(name))
       return {
         message: "Username cannot be empty",
         valid:   false
-      }
+      };
     return {
       message: "OK",
       valid:   true
@@ -14250,7 +14244,7 @@ define('score', [
         name: validateName(this.get('name')),
         email: validateEmail(this.get('email')),
         password: validatePassword(this.get('password'))
-      }
+      };
       if (!this.validity.name.valid)
         return this.validity.name.message;
       if (!this.validity.email.valid)
@@ -14260,14 +14254,14 @@ define('score', [
     },
 
     authenticate: function() {
-      var json = this.toJSON()
+      var json = this.toJSON();
 
       return $.ajax({
         url: "/login",
         type: "POST",
         data: json
       }).success(function(data) {
-        data = $.parseJSON(data)
+        data = $.parseJSON(data);
         if(data.status === "OK") {
           this.set('is_authenticated', true);
         }
@@ -14297,7 +14291,7 @@ define('score', [
         $.get("/getinfo", function(data) {
           data = $.parseJSON(data);
           if (data.results == null)
-            data.results = []
+            data.results = [];
           this.set({
             name: data.name,
             is_authenticated: data.loggedIn,
@@ -14317,7 +14311,7 @@ define('score', [
 
   Backbone.Model.definitions = {
     current_user: new Player()
-  }
+  };
 
   return Player;
 });
@@ -14519,7 +14513,7 @@ function dispatch(self, event, form) {
             dispatch(self, event, $(this));
             self.re_render();
             return false;
-          })
+          });
           if (localStorage['name'] &&
               localStorage['email'] &&
               localStorage['password']) {
@@ -14540,17 +14534,17 @@ function dispatch(self, event, form) {
         },
         re_render: function() {
           var validation = this.model.getValidity();
-          var form = this.$el.find('form')
+          var form = this.$el.find('form');
           var self = this;
 
           validateElement('name', form, validation);
           validateElement('email', form, validation);
           validateElement('password', form, validation);
 
-          var res = this.model.register()
+          var res = this.model.register();
           if(res!=null)
             res.done(function(data){
-              data = $.parseJSON(data)
+              data = $.parseJSON(data);
               alert(data.message);
               if(data.status=="OK") {
                 self.model.authenticate().done(function(){
@@ -14559,7 +14553,7 @@ function dispatch(self, event, form) {
                   }
                 })
               }
-            })
+            });
           this.model.getInfo();
         },
         show: function () {
@@ -14699,7 +14693,7 @@ define('userpanel', [
   var View = Backbone.View.extend({
       template: tmpl,
       initialize: function () {
-        this.model = Backbone.Model.definitions.current_user
+        this.model = Backbone.Model.definitions.current_user;
         this.model.getInfo();
         this.listenTo(this.model, "change", this.render);
       },
@@ -14708,6 +14702,7 @@ define('userpanel', [
         this.$el.html(this.template(self.model));
         this.$el.find('.userpanel__btns__btn__logout').on('click', function() {
           self.model.logout();
+            window.location.hash = "#main";
         });
         return this.$el;
       },

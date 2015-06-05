@@ -5,18 +5,18 @@ define('score', [
 ){
 
   function validateName(name) {
-    var reg1 = /^[a-zA-Z0-9]*$/
-    var reg2 = /^[a-zA-Z0-9][a-zA-Z0-9]*$/
+    var reg1 = /^[a-zA-Z0-9]*$/;
+    var reg2 = /^[a-zA-Z0-9][a-zA-Z0-9]*$/;
     if (!reg1.test(name))
       return {
         message: "Username can contain only letters or digits",
         valid:   false
-      }
+      };
     if (!reg2.test(name))
       return {
         message: "Username cannot be empty",
         valid:   false
-      }
+      };
     return {
       message: "OK",
       valid:   true
@@ -82,7 +82,7 @@ define('score', [
         name: validateName(this.get('name')),
         email: validateEmail(this.get('email')),
         password: validatePassword(this.get('password'))
-      }
+      };
       if (!this.validity.name.valid)
         return this.validity.name.message;
       if (!this.validity.email.valid)
@@ -92,14 +92,14 @@ define('score', [
     },
 
     authenticate: function() {
-      var json = this.toJSON()
+      var json = this.toJSON();
 
       return $.ajax({
         url: "/login",
         type: "POST",
         data: json
       }).success(function(data) {
-        data = $.parseJSON(data)
+        data = $.parseJSON(data);
         if(data.status === "OK") {
           this.set('is_authenticated', true);
         }
@@ -129,7 +129,7 @@ define('score', [
         $.get("/getinfo", function(data) {
           data = $.parseJSON(data);
           if (data.results == null)
-            data.results = []
+            data.results = [];
           this.set({
             name: data.name,
             is_authenticated: data.loggedIn,
@@ -149,7 +149,7 @@ define('score', [
 
   Backbone.Model.definitions = {
     current_user: new Player()
-  }
+  };
 
   return Player;
 });

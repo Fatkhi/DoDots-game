@@ -98,8 +98,7 @@ define('game',[
         show: function (data) {
             this.$el.show();
             this.trigger("show");
-            if (Backbone.Model.definitions.current_user.get('is_authenticated') && !this.model.inGame) {
-                //this.model.inGame = true;
+            if (Backbone.Model.definitions.current_user.get('is_authenticated')) {
                 this.model.startGame();
             }
             else if(!Backbone.Model.definitions.current_user.get('is_authenticated')){
@@ -118,7 +117,6 @@ define('game',[
             }
         },
         hide: function () {
-            //this.inGame = false;
             this.$el.hide()
         }
     });

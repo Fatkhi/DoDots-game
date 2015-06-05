@@ -52,7 +52,7 @@ function dispatch(self, event, form) {
             dispatch(self, event, $(this));
             self.re_render();
             return false;
-          })
+          });
           if (localStorage['name'] &&
               localStorage['email'] &&
               localStorage['password']) {
@@ -73,17 +73,17 @@ function dispatch(self, event, form) {
         },
         re_render: function() {
           var validation = this.model.getValidity();
-          var form = this.$el.find('form')
+          var form = this.$el.find('form');
           var self = this;
 
           validateElement('name', form, validation);
           validateElement('email', form, validation);
           validateElement('password', form, validation);
 
-          var res = this.model.register()
+          var res = this.model.register();
           if(res!=null)
             res.done(function(data){
-              data = $.parseJSON(data)
+              data = $.parseJSON(data);
               alert(data.message);
               if(data.status=="OK") {
                 self.model.authenticate().done(function(){
@@ -92,7 +92,7 @@ function dispatch(self, event, form) {
                   }
                 })
               }
-            })
+            });
           this.model.getInfo();
         },
         show: function () {

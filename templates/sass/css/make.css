@@ -823,12 +823,10 @@ input:-webkit-autofill {
     .game__row__circle_secondOwned {
       background: #cb4c57; }
     .game__row__circle_capturedByFirst {
-      background: #cb4c57;
       border: 7px solid #666666;
       box-shadow: 0 0 0 5px #FAF8EF inset;
       box-sizing: border-box; }
     .game__row__circle_capturedBySecond {
-      background: #4e5d69;
       border: 7px solid #666666;
       box-shadow: 0 0 0 5px #FAF8EF inset;
       box-sizing: border-box; }

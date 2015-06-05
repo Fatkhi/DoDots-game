@@ -6,7 +6,6 @@ define('board', [
 ){
 
   var Board = Backbone.Model.extend({
-      inGame: false,
     cells: [],
     ws: null,
     currentStep: null,
@@ -23,16 +22,14 @@ define('board', [
         var rowNum = this.get('rownum');
         var colNum = this.get('colnum');
       for (i = 0; i < rowNum; i++) {
-        this.cells[i] = []
+        this.cells[i] = [];
         for (j = 0; j < colNum; j++) {
           this.cells[i][j] = 0;
         }
       }
     },
     startGame: function() {
-        this.inGame = true;
       this.set("message", "Waiting for another player");
-        //badcode
         swal({
             title: "Waiting for another player...",
             type: "info",
@@ -57,7 +54,6 @@ define('board', [
 
       this.ws.onclose = function (event) {
         this.set('Status', 'Connection closed');
-          this.inGame = false;
       }.bind(this)
     },
     capture: function(row, col) {
@@ -93,7 +89,7 @@ define('board', [
               showConfirmButton: true
           });
       } else if (data.status === "Connected") {
-        this.set("status",  "Waiting...")
+        this.set("status",  "Waiting...");
         this.set("message", data.message)
       } else if (data.status === "OK" ||
                  data.status === "Error" ||
@@ -103,7 +99,6 @@ define('board', [
         this.trigger("boardChange");
 
         if (data.game_end){
-            this.inGame = false;
             this.set("status", "Game end!");
             swal({
                 title: "The end!",

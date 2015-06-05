@@ -20,13 +20,13 @@ $free-color: #EDE0C9;
         background: $second-color;
       }
       &_capturedByFirst {
-        background: $second-color;
+        //background: $second-color;
         border: 7px solid #666666;
         box-shadow: 0 0 0 5px #FAF8EF inset;
         box-sizing: border-box;
       }
       &_capturedBySecond {
-        background: $first-color;
+        //background: $first-color;
         border: 7px solid #666666;
         box-shadow: 0 0 0 5px #FAF8EF inset;
         box-sizing: border-box;
