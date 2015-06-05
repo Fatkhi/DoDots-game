@@ -2,7 +2,7 @@
   <connectCloseStatus>Close</connectCloseStatus>
   <connectCloseMessage>Connection closed.</connectCloseMessage>
 
-  <commandAcceptedMessage>Data accepted.</commandAcceptedMessage>
+  <commandAcceptedMessage>Data accepted</commandAcceptedMessage>
   <commandInvalidMessage>Invalid data.</commandInvalidMessage>
 
   <gameStartStatus>Game start</gameStartStatus>
@@ -10,6 +10,8 @@
 
   <gameEndStatus>GameEnd</gameEndStatus>
   <gameEndMessage>Game over!</gameEndMessage>
+
+  <infoMessage>You get information about game.</infoMessage>
 
   <boardCall>board</boardCall>
 

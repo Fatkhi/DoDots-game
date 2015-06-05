@@ -25,5 +25,19 @@
   <usernameAPIName>name</usernameAPIName>
   <emailAPIName>email</emailAPIName>
   <passwordAPIName>password</passwordAPIName>
+  <loggedInAPIName>loggedIn</loggedInAPIName>
+  <scoreAPIName>score</scoreAPIName>
+  <resultsAPIName>results</resultsAPIName>
+  <isAdminName>is_admin</isAdminName>
+
+  <guestName>Guest</guestName>
+  <guestEmail>none</guestEmail>
+
+  <user1APIName>user1</user1APIName>
+  <user2APIName>user2</user2APIName>
+
+  <user1ScoreAPIName>score1</user1ScoreAPIName>
+  <user2ScoreAPIName>score2</user2ScoreAPIName>
+
 
 </object>
