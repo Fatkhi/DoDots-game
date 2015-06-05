@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
     <meta charset="utf-8">
-    <script src="/js/build.min.js"></script>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/all_sass.css"/>
 </head>
 <body>
+  <div id="loadwrapper">
+    <div class="loader">
+     <p> Загружаемся...
+     <p> А пока вы можете съесть ещё этих мягких французских булок, да выпить чаю.
+    </div>
+  </div>
   <div id="topbar"></div>
   <div id="page"></div>
+  <script src="/js/build.min.js"></script>
+  <script>
+    require(['main'], function(){
+      $("#loadwrapper").hide();
+    });
+  </script>
 </body>
 </html>
-
-
