@@ -68,7 +68,7 @@ define('board', [
 
       this.ws.onclose = function (event) {
           console.log(this.ragequit);
-          if(this.ragequit == true){
+          if(this.ragequit == true && (this.get('status') != 'Game end!')){
               this.set('status', 'Connection closed');
               swal({
                   title: "Haha RAGEQUIT",
@@ -130,7 +130,7 @@ define('board', [
                   showConfirmButton: true
               });
           } else if (data.status === "Connected") {
-              this.set("status",  "Waiting...")
+              this.set("status",  "Waiting...");
               this.set("message", data.message)
           } else if (data.status === "OK" ||
               data.status === "Error" ||
