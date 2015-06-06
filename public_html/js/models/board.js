@@ -161,10 +161,10 @@ define('board', [
                   type: "success",
                   showCancelButton: false,
                   confirmButtonColor: "#CB4C57",
-                  confirmButtonText: "Back to main",
+                  confirmButtonText: "Show best results",
                   closeOnConfirm: true
               }, function(){
-                  window.location.hash = '#main';
+                  window.location.hash = '#scoreboard';
               });
           }
 
